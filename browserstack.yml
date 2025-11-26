@@ -1,0 +1,16 @@
+userName: sathishselvaraj_0eCocD
+accessKey: ArhXgDKkWynrzWXRpvJ8
+framework: testng
+platforms:
+  - os: Windows
+    osVersion: 10
+    browserName: Chrome
+    browserVersion: 120.0
+browserstackLocal: false
+buildName: bstack-demo
+projectName: BrowserStack Connect
+CUSTOM_TAG_1: "You can set a custom Build Tag here"
+# Use CUSTOM_TAG_<N> and set more build tags as you need.
+debug: true
+networkLogs: true
+consoleLogs: info

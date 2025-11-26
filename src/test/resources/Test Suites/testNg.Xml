@@ -1,0 +1,21 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Connect App Suite" parallel="false">
+
+    <test name="Positive Login Test">
+        <classes>
+            <class name="tests.ConnectLoginTest"/>
+        </classes>
+    </test>
+
+    <test name="Leave Request Test">
+        <classes>
+            <class name="tests.ConnectLeaveRequest"/>
+        </classes>
+    </test>
+    <test name="Catering Topup">
+        <classes>
+            <class name="tests.CateringTest"/>
+        </classes>
+    </test>
+
+</suite>
