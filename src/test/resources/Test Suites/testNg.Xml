@@ -2,17 +2,20 @@
 <suite name="Connect App Suite" parallel="false">
 
     <test name="Positive Login Test">
+        <parameter name="browser" value="chrome"/>
         <classes>
             <class name="tests.ConnectLoginTest"/>
         </classes>
     </test>
 
     <test name="Leave Request Test">
+        <parameter name="browser" value="chrome"/>
         <classes>
             <class name="tests.ConnectLeaveRequest"/>
         </classes>
     </test>
     <test name="Catering Topup">
+        <parameter name="browser" value="chrome"/>
         <classes>
             <class name="tests.CateringTest"/>
         </classes>
