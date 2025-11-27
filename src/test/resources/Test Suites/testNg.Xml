@@ -20,5 +20,11 @@
             <class name="tests.CateringTest"/>
         </classes>
     </test>
+    <test name="Transport service Request">
+        <parameter name="browser" value="chrome"/>
+        <classes>
+            <class name="tests.TransportServiceRequest"/>
+        </classes>
+    </test>
 
 </suite>

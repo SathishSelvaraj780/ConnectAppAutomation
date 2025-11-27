@@ -22,7 +22,7 @@ public class SeleniumTest {
 
     @BeforeMethod(alwaysRun = true)
     @Parameters("browser")
-    public void setUp(String browser) throws Exception {
+    public void setUp(@Optional("chrome") String browser) throws Exception {
         logger.info("Running test in BrowserStack on " + browser);
 
         // Load config.properties for dynamic tags
