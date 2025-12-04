@@ -4,6 +4,7 @@ import base.SeleniumTest;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import pages.LoginPage;
 import pages.TransportPage;
@@ -11,7 +12,7 @@ import java.time.Duration;
 
 
 public class TransportServiceRequest extends SeleniumTest {
-    @Test
+    @Test(groups = "regression") @Parameters
     public void ServiceRequestTest(){
         driver.get(config.getProperty("app.url"));
 
@@ -21,11 +22,7 @@ public class TransportServiceRequest extends SeleniumTest {
         Login.enterPassword("Welcome1234@");
         Login.clickLogin();
         // Optional: wait for login to complete or dashboard to load
-        try {
-            Thread.sleep(3000);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
+       WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(10));
         // Step 3: Open Leave Request page and submit a new request
         TransportPage transportPage = new TransportPage(driver);
         transportPage.openTransport();
