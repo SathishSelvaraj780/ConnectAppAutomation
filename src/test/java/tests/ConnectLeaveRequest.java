@@ -22,7 +22,7 @@ public class ConnectLeaveRequest extends SeleniumTest {
         // Optional: wait for login to complete or dashboard to load
         Thread.sleep(3000);
     // Step 3: Open Leave Request page and submit a new request
-        LeaveRequestPage leaveRequestPage = new LeaveRequestPage(driver);
+      LeaveRequestPage leaveRequestPage = new LeaveRequestPage(driver);
     leaveRequestPage.openRequestsMenu();
     leaveRequestPage.openLeaveRequestMenu();
     leaveRequestPage.clickApplyLeave();
