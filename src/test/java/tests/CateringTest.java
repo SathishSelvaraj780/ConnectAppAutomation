@@ -16,10 +16,10 @@ public class CateringTest extends SeleniumTest {
     public void appCateringTopup() {
         driver.get(config.getProperty("app.url"));
 
-        // Step 2: Login
+        // Step 2: Login with credentials from config
         LoginPage Login = new LoginPage(driver);
-        Login.enterUsername("shakeel.s22");
-        Login.enterPassword("Welcome1234@");
+        Login.enterUsername(config.getProperty("test.username", "shakeel.s22"));
+        Login.enterPassword(config.getProperty("test.password", "Welcome1234@"));
         Login.clickLogin();
         // Optional: wait for login to complete or dashboard to load
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
@@ -28,8 +28,8 @@ public class CateringTest extends SeleniumTest {
         CateringTopUp cateringTopUp1 = new CateringTopUp(driver);
         cateringTopUp1.openCateringMenu();
         cateringTopUp1.openTopUp();
-        cateringTopUp1.Scrolldown();
-        cateringTopUp1.Enteramount(500);
+        cateringTopUp1.scrollDown();
+        cateringTopUp1.enterAmount(500);
         cateringTopUp1.clickProceed();
         cateringTopUp1.finalProceed();
         //ValidateCateringTest

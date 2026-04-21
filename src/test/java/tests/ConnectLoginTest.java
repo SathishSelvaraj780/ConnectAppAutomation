@@ -20,8 +20,8 @@ public class ConnectLoginTest extends SeleniumTest {
         LoginPage login = new LoginPage(driver);
 
         // Perform login actions
-        login.enterUsername("shakeel.s22");
-        login.enterPassword("Welcome1234@");
+        login.enterUsername(config.getProperty("test.username", "shakeel.s22"));
+        login.enterPassword(config.getProperty("test.password", "Welcome1234@"));
         login.clickLogin();
 
         // Wait for dashboard
@@ -31,21 +31,22 @@ public class ConnectLoginTest extends SeleniumTest {
                 "Dashboard not visible after login"
         );
     }
-        @Test
-        public void appnegativeLoginTest(){
-            driver.get(config.getProperty("app.url"));
 
-            // Initialize the page object
-            LoginPage login = new LoginPage(driver);
+    @Test
+    public void appNegativeLoginTest(){
+        driver.get(config.getProperty("app.url"));
 
-            // Perform login actions
-            login.enterUsername("shakeel");
-            login.enterPassword("Welcome");
-            login.clickLogin();
+        // Initialize the page object
+        LoginPage login = new LoginPage(driver);
 
-            //Validate Error Message
-            String actualError = login.getErrorMessage();
-            String expectedError = "Invalid username or password";
-            Assert.assertEquals(actualError, expectedError);
-        }
+        // Perform login actions with invalid credentials
+        login.enterUsername("shakeel");
+        login.enterPassword("Welcome");
+        login.clickLogin();
+
+        //Validate Error Message
+        String actualError = login.getErrorMessage();
+        String expectedError = "Invalid username or password";
+        Assert.assertEquals(actualError, expectedError);
     }
+}

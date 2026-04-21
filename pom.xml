@@ -27,7 +27,7 @@
         <dependency>
             <groupId>org.testng</groupId>
             <artifactId>testng</artifactId>
-            <version>7.10.2</version>
+            <version>7.11.0</version>
             <scope>test</scope>
         </dependency>
 
@@ -65,12 +65,6 @@
             <artifactId>webdrivermanager</artifactId>
             <version>5.9.0</version>
         </dependency>
-        <dependency>
-            <groupId>org.testng</groupId>
-            <artifactId>testng</artifactId>
-            <version>7.11.0</version>
-            <scope>compile</scope>
-        </dependency>
 
     </dependencies>
 
@@ -84,7 +78,7 @@
                 <version>${surefire.version}</version>
                 <configuration>
                     <suiteXmlFiles>
-                        <suiteXmlFile>config/sample-test.testng.xml</suiteXmlFile>
+                        <suiteXmlFile>src/test/resources/Test Suites/testNg.Xml</suiteXmlFile>
                     </suiteXmlFiles>
                 </configuration>
             </plugin>

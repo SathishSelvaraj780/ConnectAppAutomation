@@ -14,14 +14,13 @@ public class TransportPage {
     private WebDriver driver;
     private WebDriverWait wait;
 
-    private By Topmenu = By.xpath("//*[@data-menutext='Requests']");
+    // Removed unused: private By Topmenu = By.xpath("//*[@data-menutext='Requests']");
     private By TransportMenu = By.xpath("//li[@data-menu='Transport']");
     private By ServiceRequest = By.xpath("//*[@data-menutext=\"Service Request\"]");
     private By Category = By.xpath("//*[@id=\"categorySelect\"]");
     private By DescriptionField = By.xpath("//*[@id=\"txtcomment\"]");
-    private By ContactedButtonYes = By.xpath("//*[@id=\"contactYes\"]");
     private By ContactedButtonNo = By.xpath("//*[@id=\"contactNo\"]");
-    private By HowToConatc = By.xpath("//input[@type=\"radio\" and @value=\"Mobile\"]");
+    private By HowToContact = By.xpath("//input[@type=\"radio\" and @value=\"Mobile\"]");
     private By Attachment  = By.xpath("//input[@id=\"file-input\"]");
     private By SubmittButton = By.id("submitServiceRequest");
     private By CancelButton = By.id("cancelToHome");
@@ -33,7 +32,7 @@ public class TransportPage {
         this.driver = driver;
         this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
     }
-        //Open Catering Menu
+        //Open Transport Menu
         public void openTransport(){
             wait.until(ExpectedConditions.elementToBeClickable(TransportMenu)).click();
         }
@@ -51,12 +50,12 @@ public class TransportPage {
         driver.findElement(DescriptionField).sendKeys(description);
     }
     //Select Would like to be Contacted
-    public void selectwouldlikeTobeContacted(){
+    public void selectWouldLikeToBeContacted(){
             driver.findElement(ContactedButtonNo).click();
     }
     //Select How to be Contacted
-    public void slectHowtobeContacted(){
-        driver.findElement(HowToConatc).click();
+    public void selectHowToBeContacted(){
+        driver.findElement(HowToContact).click();
     }
     // Upload attachment (file upload)
 

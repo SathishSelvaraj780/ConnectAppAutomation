@@ -7,7 +7,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.annotations.AfterGroups;
 
 import java.time.Duration;
 
@@ -38,12 +37,12 @@ public class CateringTopUp {
         wait.until(ExpectedConditions.elementToBeClickable(TopUpMenu)).click();
     }
     //Scroll down
-    public void Scrolldown(){
+    public void scrollDown(){
         Actions Action = new Actions(driver);
         Action.sendKeys(Keys.END).perform();
     }
     //Enter amount
-    public void Enteramount(int amount){
+    public void enterAmount(int amount){
         WebElement amountField = wait.until(ExpectedConditions.visibilityOfElementLocated(InputAmountfield));
         amountField.clear();
         amountField.sendKeys(String.valueOf(amount));
@@ -52,7 +51,7 @@ public class CateringTopUp {
     public void clickProceed(){
         wait.until(ExpectedConditions.elementToBeClickable(ProceedtoPay)).click();
     }
-    //Alret page proceed
+    //Alert page proceed
     public void finalProceed(){
         wait.until(ExpectedConditions.elementToBeClickable(AlertPageProcced)).click();
     }

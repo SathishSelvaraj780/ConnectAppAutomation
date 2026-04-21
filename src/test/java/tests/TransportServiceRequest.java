@@ -12,14 +12,15 @@ import java.time.Duration;
 
 
 public class TransportServiceRequest extends SeleniumTest {
-    @Test(groups = "regression") @Parameters
+    @Test(groups = "regression")
+    @Parameters({"browser"})
     public void ServiceRequestTest(){
         driver.get(config.getProperty("app.url"));
 
-        // Step 2: Login
+        // Step 2: Login with credentials from config
         LoginPage Login = new LoginPage(driver);
-        Login.enterUsername("shakeel.s22");
-        Login.enterPassword("Welcome1234@");
+        Login.enterUsername(config.getProperty("test.username", "shakeel.s22"));
+        Login.enterPassword(config.getProperty("test.password", "Welcome1234@"));
         Login.clickLogin();
         // Optional: wait for login to complete or dashboard to load
        WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(10));
