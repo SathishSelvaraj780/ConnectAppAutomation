@@ -18,7 +18,7 @@ public class CateringTest extends SeleniumTest {
 
         // Step 2: Login with credentials from config
         LoginPage Login = new LoginPage(driver);
-        Login.enterUsername(config.getProperty("test.username", "shakeel.s22"));
+        Login.enterUsername(config.getProperty("test.username", "Nahyan.n"));
         Login.enterPassword(config.getProperty("test.password", "Welcome1234@"));
         Login.clickLogin();
         // Optional: wait for login to complete or dashboard to load
