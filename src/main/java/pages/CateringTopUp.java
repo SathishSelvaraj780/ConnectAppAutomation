@@ -49,7 +49,19 @@ public class CateringTopUp {
     }
     //Proceed to payment
     public void clickProceed(){
-        wait.until(ExpectedConditions.elementToBeClickable(ProceedtoPay)).click();
+        WebElement button = wait.until(ExpectedConditions.presenceOfElementLocated(ProceedtoPay));
+
+        ((org.openqa.selenium.JavascriptExecutor) driver)
+                .executeScript("arguments[0].scrollIntoView(true);", button);
+
+        wait.until(ExpectedConditions.elementToBeClickable(button));
+
+        try {
+            button.click();
+        } catch (Exception e) {
+            ((org.openqa.selenium.JavascriptExecutor) driver)
+                    .executeScript("arguments[0].click();", button);
+        }
     }
     //Alert page proceed
     public void finalProceed(){
