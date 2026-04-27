@@ -4,26 +4,26 @@
     <test name="Positive Login Test">
         <parameter name="browser" value="chrome"/>
         <classes>
-            <class name="tests.ConnectLoginTest"/>
+            <class name="modules.login.tests.ConnectLoginTest"/>
         </classes>
     </test>
 
     <test name="Leave Request Test">
         <parameter name="browser" value="chrome"/>
         <classes>
-            <class name="tests.ConnectLeaveRequest"/>
+            <class name="modules.Leaverequest.test.ConnectLeaveRequest"/>
         </classes>
     </test>
     <test name="Catering Topup">
         <parameter name="browser" value="chrome"/>
         <classes>
-            <class name="tests.CateringTest"/>
+            <class name="modules.catering.topuptest.CateringTest"/>
         </classes>
     </test>
     <test name="Transport service Request">
         <parameter name="browser" value="chrome"/>
         <classes>
-            <class name="tests.TransportServiceRequest"/>
+            <class name="modules.Transport.ServicerequestTest.TransportServiceRequest"/>
         </classes>
     </test>
 

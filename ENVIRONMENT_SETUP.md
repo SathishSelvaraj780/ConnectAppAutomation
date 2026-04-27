@@ -250,7 +250,7 @@ The tests are configured to run with Chrome by default. To use other browsers, m
 <test name="Positive Login Test">
     <parameter name="browser" value="firefox"/>  <!-- Change to firefox or edge -->
     <classes>
-        <class name="tests.ConnectLoginTest"/>
+        <class name="modules.login.tests.ConnectLoginTest"/>
     </classes>
 </test>
 ```
