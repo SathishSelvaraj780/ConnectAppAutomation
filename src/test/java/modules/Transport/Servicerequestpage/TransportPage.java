@@ -1,8 +1,7 @@
 package modules.Transport.Servicerequestpage;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -38,8 +37,11 @@ public class TransportPage {
         }
         //Open Service request
     public void openServiceRequest(){
-        wait.until((ExpectedConditions.elementToBeClickable(ServiceRequest))).click();
+        wait.until(ExpectedConditions.elementToBeClickable(ServiceRequest)).click();
     }
+
+
+
     public void selectCategory(){
         WebElement dropdown = wait.until(ExpectedConditions.elementToBeClickable(Category));
         Select select = new Select(dropdown);
@@ -74,4 +76,5 @@ public class TransportPage {
         wait.until(ExpectedConditions.elementToBeClickable(sucessButton)).click();
     }
     }
+
 

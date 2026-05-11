@@ -46,6 +46,7 @@ public class CateringTopUp {
         WebElement amountField = wait.until(ExpectedConditions.visibilityOfElementLocated(InputAmountfield));
         amountField.clear();
         amountField.sendKeys(String.valueOf(amount));
+        amountField.sendKeys(Keys.TAB);
     }
     //Proceed to payment
     public void clickProceed(){

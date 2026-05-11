@@ -2,7 +2,7 @@
 <suite name="Connect App Suite" parallel="false">
 
     <test name="Positive Login Test">
-        <parameter name="browser" value="chrome"/>
+        <parameter name="runmode" value="browserstack"/>
         <classes>
             <class name="modules.login.tests.ConnectLoginTest"/>
         </classes>
@@ -24,6 +24,18 @@
         <parameter name="browser" value="chrome"/>
         <classes>
             <class name="modules.Transport.ServicerequestTest.TransportServiceRequest"/>
+        </classes>
+    </test>
+    <test name="Banner Test">
+        <parameter name="browser" value="chrome"/>
+        <classes>
+            <class name="modules.Homepage.DashboardTests.BannerTest"/>
+        </classes>
+    </test>
+    <test name="Dashboard Redirection Test">
+        <parameter name="browser" value="chrome"/>
+        <classes>
+            <class name="modules.Homepage.DashboardTests.DashboardRedirectionTest"/>
         </classes>
     </test>
 

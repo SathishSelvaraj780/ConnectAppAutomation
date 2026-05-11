@@ -35,16 +35,17 @@
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-java</artifactId>
-            <version>${selenium.version}</version>
+            <version>4.24.0</version>
         </dependency>
 
         <!-- BrowserStack SDK -->
+        <!--
         <dependency>
             <groupId>com.browserstack</groupId>
             <artifactId>browserstack-java-sdk</artifactId>
             <version>1.41.4</version>
         </dependency>
-
+        -->
         <!-- Cucumber Java -->
         <dependency>
             <groupId>io.cucumber</groupId>

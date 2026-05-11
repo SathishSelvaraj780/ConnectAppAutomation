@@ -23,7 +23,7 @@ public class CateringTest extends SeleniumTest {
         Login.clickLogin();
         // Optional: wait for login to complete or dashboard to load
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        wait.until(ExpectedConditions.urlContains("https://qa-connect.phoenixhse.com/Home/Home"));
+        wait.until(ExpectedConditions.urlContains("https://qa-connectv2.phoenixhse.com/Home/Home"));
         //Open Catering Menu
         CateringTopUp cateringTopUp1 = new CateringTopUp(driver);
         cateringTopUp1.openCateringMenu();
