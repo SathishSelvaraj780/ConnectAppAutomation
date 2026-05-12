@@ -12,6 +12,9 @@ public class LoginPage {
     private By password = By.id("Password");
     private By loginButton = By.id("submitLogin");
     private By errorMessage = By.xpath("//*[@class='text-danger text-center font14']");
+    private By openProfile = By.xpath("//img[@alt='profile']");
+    private By getselectLogout = By.xpath("//a[@href=\"/Account/Logout\"]");
+    private By getselectprofilephoto = By.xpath("//a[@data-target=\"#upload_popup_profile\"]");
 
     // Constructor
     public LoginPage(WebDriver driver) {

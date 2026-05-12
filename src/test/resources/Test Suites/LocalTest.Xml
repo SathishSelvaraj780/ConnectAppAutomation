@@ -10,7 +10,7 @@
     <test name="School Fees Local Test">
 
         <classes>
-            <class name="modules.Requests.Tests.UploadphotoTest"/>
+            <class name="modules.Requests.Tests.GatePassTest"/>
         </classes>
 
     </test>
