@@ -1,0 +1,45 @@
+package modules.schoolcalendar.tests;
+
+import java.time.Duration;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.annotations.Test;
+import base.SeleniumTest;
+import modules.login.pages.LoginPage;
+import modules.schoolcalendar.pages.SchoolCalendar;
+
+public class SchoolTest extends SeleniumTest
+
+{
+	
+	@Test
+	public void schoolCalendarModule() throws InterruptedException 
+	
+	{
+
+		driver.get(config.getProperty("app.url"));
+
+		LoginPage Login = new LoginPage(driver);
+		Login.enterUsername(config.getProperty("test.username", "Faizal.a9"));
+		Login.enterPassword(config.getProperty("test.password", "Welcome1234@"));
+		Login.clickLogin();
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+		wait.until(ExpectedConditions.urlContains("https://qa-connectv2.phoenixhse.com/"));
+		SchoolCalendar event = new SchoolCalendar(driver);		
+		
+		event.openAcademicsMenu();
+		event.openSchoolCalendarMenu();
+		event.clickUntilDesiredDate();
+		event.clickEventName();
+		event.closeEventPopUp();
+		event.searchEvent();
+		event.verifyNoSearchResults();
+		event.clickWeek();
+		event.clickUntilDesiredDate2();
+		event.clickMonth();
+		event.clickUntilDesiredDate3();
+	}
+	
+}
