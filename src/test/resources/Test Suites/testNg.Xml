@@ -23,7 +23,7 @@
     <test name="Transport service Request">
         <parameter name="browser" value="chrome"/>
         <classes>
-            <class name="modules.Transport.ServicerequestTest.TransportServiceRequest"/>
+            <class name="modules.TransportServiceRequests.ServicerequestTest.TransportServiceRequest"/>
         </classes>
     </test>
     <test name="Banner Test">

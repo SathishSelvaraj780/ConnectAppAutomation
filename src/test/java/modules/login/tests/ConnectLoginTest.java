@@ -49,4 +49,27 @@ public class ConnectLoginTest extends SeleniumTest {
         String expectedError = "Invalid username or password";
         Assert.assertEquals(actualError, expectedError);
     }
+
+    @Test
+    public void appLogoutTest(){
+        driver.get(config.getProperty("app.url"));
+
+        // Initialize the page object
+        LoginPage login = new LoginPage(driver);
+        // Perform login actions with invalid credentials
+        login.enterUsername("faizal.a9");
+        login.enterPassword("Welcome1234@");
+        login.clickLogin();
+
+        login.clickOnOpenProfile();
+        login.clicklogout();
+
+        //Validate Logout
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+        Assert.assertTrue(
+                wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("submitLogin"))).isDisplayed(),
+                "Login button not visible after logout"
+        );
+
+    }
 }

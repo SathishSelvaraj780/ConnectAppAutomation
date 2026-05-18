@@ -10,7 +10,12 @@
     <test name="School Fees Local Test">
 
         <classes>
+
             <class name="modules.schoolcalendar.tests.SchoolTest"/>
+
+            <class name="modules.StudentProfile.Tests.OthersLibraryUsageTest"/>
+            <<<<<<< HEAD
+                    runmode=local
         </classes>
 
     </test>

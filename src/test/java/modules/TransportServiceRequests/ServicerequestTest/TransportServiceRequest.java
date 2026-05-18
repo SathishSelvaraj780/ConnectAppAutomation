@@ -1,4 +1,4 @@
-package modules.Transport.ServicerequestTest;
+package modules.TransportServiceRequests.ServicerequestTest;
 
 import base.SeleniumTest;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -6,7 +6,7 @@ import org.testng.Assert;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import modules.login.pages.LoginPage;
-import modules.Transport.Servicerequestpage.TransportPage;
+import modules.TransportServiceRequests.Servicerequestpage.TransportServiceRequestPages;
 import java.time.Duration;
 
 
@@ -24,7 +24,7 @@ public class TransportServiceRequest extends SeleniumTest {
         // Optional: wait for login to complete or dashboard to load
        WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(10));
         // Step 3: Open Leave Request page and submit a new request
-        TransportPage transportPage = new TransportPage(driver);
+        TransportServiceRequestPages transportPage = new TransportServiceRequestPages(driver);
         transportPage.openTransport();
         transportPage.openServiceRequest();
         transportPage.selectCategory();
