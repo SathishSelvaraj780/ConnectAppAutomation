@@ -32,11 +32,12 @@
         </dependency>
 
         <!-- Selenium -->
-        <dependency>
-            <groupId>org.seleniumhq.selenium</groupId>
-            <artifactId>selenium-java</artifactId>
-            <version>4.24.0</version>
+       <dependency>
+          <groupId>org.seleniumhq.selenium</groupId>
+        <artifactId>selenium-java</artifactId>
+            <version>4.33.0</version>
         </dependency>
+
 
         <!-- BrowserStack SDK -->
         <!--
@@ -64,7 +65,7 @@
         <dependency>
             <groupId>io.github.bonigarcia</groupId>
             <artifactId>webdrivermanager</artifactId>
-            <version>5.9.0</version>
+            <version>5.9.2</version>
         </dependency>
         <dependency>
             <groupId>org.testng</groupId>
@@ -72,6 +73,7 @@
             <version>7.11.0</version>
             <scope>compile</scope>
         </dependency>
+        
 
     </dependencies>
 

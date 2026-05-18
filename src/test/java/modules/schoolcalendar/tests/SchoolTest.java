@@ -10,6 +10,7 @@ import base.SeleniumTest;
 import modules.login.pages.LoginPage;
 import modules.schoolcalendar.pages.SchoolCalendar;
 
+
 public class SchoolTest extends SeleniumTest
 
 {
@@ -26,7 +27,7 @@ public class SchoolTest extends SeleniumTest
 		Login.enterPassword(config.getProperty("test.password", "Welcome1234@"));
 		Login.clickLogin();
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-		wait.until(ExpectedConditions.urlContains("https://qa-connectv2.phoenixhse.com/"));
+		wait.until(ExpectedConditions.urlContains("Home"));
 		SchoolCalendar event = new SchoolCalendar(driver);		
 		
 		event.openAcademicsMenu();
@@ -36,10 +37,17 @@ public class SchoolTest extends SeleniumTest
 		event.closeEventPopUp();
 		event.searchEvent();
 		event.verifyNoSearchResults();
+		Thread.sleep(3000);
 		event.clickWeek();
 		event.clickUntilDesiredDate2();
 		event.clickMonth();
-		event.clickUntilDesiredDate3();
+		event.navigateToMonth("Mar 2026");
+
+wait.until(ExpectedConditions.visibilityOfElementLocated(
+		By.id("txtSearchMonth")));
+
+		event.searchEventMonth();
+		
 	}
 	
 }

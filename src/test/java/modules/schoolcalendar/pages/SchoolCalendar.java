@@ -8,12 +8,16 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.openqa.selenium.interactions.Actions;
 
 import base.SeleniumTest;
 
-public class SchoolCalendar extends SeleniumTest
+public class SchoolCalendar
 {
 
+	private WebDriver driver;
+	private WebDriverWait wait;
+	
 	private By Academics = By.xpath("//*[@data-menutext='Academics']");
 	private By SchoolCalendar = By.xpath("//*[@data-menutext='School Calendar']");
 	private By BackArrow = By.xpath("//*[name()='svg' and @alt='calendar arrow']");
@@ -38,10 +42,6 @@ public class SchoolCalendar extends SeleniumTest
 		wait.until(ExpectedConditions.elementToBeClickable(SchoolCalendar)).click();
 	}
 	
-	//public void clickBackArrow() {
-	//	wait.until(ExpectedConditions.elementToBeClickable(BackArrow)).click();
-	//}
-
 
 public void clickUntilDesiredDate() {
 
@@ -96,18 +96,17 @@ public void closeEventPopUp() {
     wait.until(ExpectedConditions.invisibilityOfElementLocated(modal));
 }
 
-public void searchEvent()
+public void searchEvent() throws InterruptedException
 	
 {
 
 driver.findElement(By.xpath("//input[@placeholder='Search...']"))
-      .sendKeys("2026" + Keys.ENTER);
-
-
+    .sendKeys("2026" + Keys.ENTER);
+Thread.sleep(5000);
 }
 
 
-public void verifyNoSearchResults() {
+public void verifyNoSearchResults()  {
 
     // Step 1: Enter invalid text
     WebElement searchBox = wait.until(
@@ -119,7 +118,8 @@ public void verifyNoSearchResults() {
     searchBox.clear();
     searchBox.sendKeys("txtxt");
     searchBox.sendKeys(Keys.ENTER);
-
+    
+   
     // Step 2: Validate no results message
     WebElement message = wait.until(
         ExpectedConditions.visibilityOfElementLocated(
@@ -134,6 +134,7 @@ public void verifyNoSearchResults() {
         System.out.println("✅ No result message verified");
     } else {
         System.out.println("❌ Message mismatch");
+        
     }
 }
 
@@ -145,7 +146,7 @@ public void clickWeek()
 
 public void clickUntilDesiredDate2() {
 
-    String expectedDate = "5th week of Mar 2026";
+    String expectedDate = "1st week of Apr 2026";
 
     while (true) {
 
@@ -180,42 +181,55 @@ public void clickMonth()
 }
 
 
-public void clickUntilDesiredDate3() {
+public void navigateToMonth(String expectedMonth) {
 
-    String expectedMonth = "Mar 2026";
+    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
 
-    while (true) {
+    By leftArrow = By.xpath("//span[@class='prevMonth']//a");
+    By monthLabel = By.id("s_m");
 
-        WebElement dateElement = wait.until(
-            ExpectedConditions.visibilityOfElementLocated(By.id("s_m"))
-        );
+    for (int i = 0; i < 12; i++) {
 
-        String currentDate = dateElement.getText().trim();
-        System.out.println("Current Month: " + currentDate);
+        String current = wait.until(
+                ExpectedConditions.visibilityOfElementLocated(monthLabel)
+        ).getText().trim();
 
-        if (currentDate.equals(expectedMonth)) {
-            System.out.println("Reached target month: " + currentDate);
-            break;
+        System.out.println("Current Month: " + current);
+
+        if (current.equalsIgnoreCase(expectedMonth)) {
+            System.out.println("✅ Reached: " + current);
+            return;
         }
 
-        By leftArrow = By.xpath(
-            "//button[.//*[name()='svg' and contains(@src,'calendar-left-arrow-icon')]]"
+        // ✅ click
+        WebElement arrow = wait.until(
+                ExpectedConditions.elementToBeClickable(leftArrow)
         );
+        arrow.click();
 
-        WebElement arrow = wait.until(ExpectedConditions.visibilityOfElementLocated(leftArrow));
-
-        // ✅ Scroll + JS click (fixes ALL click issues)
-        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", arrow);
-        ((JavascriptExecutor) driver).executeScript("arguments[0].click();", arrow);
-
-        // ✅ Wait for month change
+        // ✅ wait for month change
         wait.until(ExpectedConditions.not(
-            ExpectedConditions.textToBe(By.id("s_m"), currentDate)
+                ExpectedConditions.textToBePresentInElementLocated(monthLabel, current)
         ));
 
+        // ✅ small wait for data load (YOUR CASE)
+        try { Thread.sleep(1500); } catch (Exception e) {}
     }
+
+    throw new RuntimeException("Month not reached");
 }
+
+public void searchEventMonth() throws InterruptedException
+
+{
+
+driver.findElement(By.id("txtSearchMonth"))
+      .sendKeys("2027" + Keys.ENTER);
+Thread.sleep(5000);
 
 
 }
-			
+
+}
+
+		

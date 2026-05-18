@@ -103,15 +103,14 @@ public class SeleniumTest {
                     ChromeOptions options = new ChromeOptions();
 
                     options.addArguments("--force-device-scale-factor=0.50");
+                    
 
                     driver = new ChromeDriver(options);
-
-                    driver.manage().window().maximize();
 
 
                     break;
             }
-
+            driver.manage().window().maximize();
         }
 
         // =========================
@@ -247,7 +246,7 @@ public class SeleniumTest {
         // COMMON SETUP
         // =========================
 
-        driver.manage()
+     driver.manage()
                 .timeouts()
                 .implicitlyWait(Duration.ofSeconds(10));
 
@@ -260,8 +259,8 @@ public class SeleniumTest {
 
         if (driver != null) {
 
-            driver.quit();
-            System.out.println("Browser closed");
+           driver.quit();
+           System.out.println("Browser closed");
         }
     }
 

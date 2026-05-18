@@ -8,9 +8,13 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import base.SeleniumTest;
 
-public class AcademicReports extends SeleniumTest
+public class AcademicReports 
 
 {
+
+    private WebDriver driver;
+    private WebDriverWait wait;
+
 
 	private By Academics = By.xpath("//*[@data-menutext='Academics']");
 	private By AcademicReports = By.xpath("//*[@data-menutext='Academic Reports']");
@@ -33,11 +37,12 @@ public class AcademicReports extends SeleniumTest
 	}
 
 	public void openAcademicReportsMenu() {
+		wait.until(ExpectedConditions.visibilityOfElementLocated(AcademicReports));
 		wait.until(ExpectedConditions.elementToBeClickable(AcademicReports)).click();
 	}
 
 	public void openAcademicYearMenu() {
-		waitForOverlayToDisappear();
+		
 		wait.until(ExpectedConditions.elementToBeClickable(AcademicYear)).click();
 	}
 
@@ -49,7 +54,7 @@ public class AcademicReports extends SeleniumTest
 						+ year + "']");
 
 		wait.until(ExpectedConditions.elementToBeClickable(yearLocator)).click();
-		waitForOverlayToDisappear();
+		
 	}
 
 	public void waitForCat4Card() {
@@ -57,8 +62,9 @@ public class AcademicReports extends SeleniumTest
 		wait.until(ExpectedConditions.visibilityOfElementLocated(cat4Text));
 	}
 
-	public void clickCat4ViewReport() {
+	public void clickCat4ViewReport() throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(cat4ViewReport)).click();
+		Thread.sleep(4000);
 	}
 
 	public void closePdfViewer() {

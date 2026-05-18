@@ -10,9 +10,8 @@
     <test name="School Fees Local Test">
 
         <classes>
-            <class name="modules.Requests.Tests.GatePassTest"/>
+            <class name="modules.schoolcalendar.tests.SchoolTest"/>
         </classes>
 
     </test>
-
 </suite>

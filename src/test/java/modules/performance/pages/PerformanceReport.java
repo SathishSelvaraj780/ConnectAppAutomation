@@ -8,9 +8,11 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import base.SeleniumTest;
 
-public class PerformanceReport extends SeleniumTest
-
+public class PerformanceReport 
 {
+	 private WebDriver driver;
+	    private WebDriverWait wait;
+	
 	private By Academics = By.xpath("//*[@data-menutext='Academics']");
 	private By PerformanceReports = By.xpath("//*[@data-menutext='Performance Reports']");
 	private By AcademicYear = By.xpath("//button[@data-id='selectedAcademicYears']");
@@ -48,7 +50,7 @@ public class PerformanceReport extends SeleniumTest
 						+ year + "']");
 
 		wait.until(ExpectedConditions.elementToBeClickable(yearLocator)).click();
-		waitForOverlayToDisappear();
+		
 	}
 	
 	public void waitForPeriodicTest() {
@@ -56,8 +58,9 @@ public class PerformanceReport extends SeleniumTest
 		wait.until(ExpectedConditions.visibilityOfElementLocated(PeriodicTest));
 	}
 	
-	public void clickPeriodicTestViewReport() {
+	public void clickPeriodicTestViewReport() throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(PeriodicTestViewReport)).click();
+		Thread.sleep(3000);
 	}
 	
 	public void closePdfViewer() {
@@ -77,7 +80,7 @@ public class PerformanceReport extends SeleniumTest
 	
 	public void PeriodicDownloadReport() throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(PeriodicDownloadReport)).click();
-		Thread.sleep(8000);
+		Thread.sleep(4000);
 	}
 }
 
