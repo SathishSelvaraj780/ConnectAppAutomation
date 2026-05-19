@@ -1,7 +1,7 @@
 package modules.StudentProfile.Tests;
 
 import base.SeleniumTest;
-import io.qameta.allure.Description;
+import io.qameta.allure.*;
 import modules.StudentProfile.Pages.StudentProfilePage;
 import modules.login.pages.LoginPage;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -12,6 +12,9 @@ import java.time.Duration;
 
 public class CurriculamTest extends SeleniumTest
 {
+    @Epic("Student Profile")
+    @Feature("Curriculam Details")
+    @Severity(SeverityLevel.NORMAL)
     @Description("Validate Student Profile Curriculam Details")
     @Test
     public void VerifyCurriculamDetailsPage()

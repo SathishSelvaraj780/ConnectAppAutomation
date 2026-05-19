@@ -1,5 +1,6 @@
 package modules.login.pages;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -35,14 +36,15 @@ public class LoginPage {
     }
 
     // Actions
+    @Step("Enter Username : {0}")
     public void enterUsername(String user) {
         driver.findElement(username).sendKeys(user);
     }
-
+    @Step("Enter Password : {0}")
     public void enterPassword(String pass) {
         driver.findElement(password).sendKeys(pass);
     }
-
+    @Step("Click on Login Button")
     public void clickLogin() {
         driver.findElement(loginButton).click();
     }
