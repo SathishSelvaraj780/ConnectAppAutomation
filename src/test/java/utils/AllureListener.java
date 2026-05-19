@@ -8,7 +8,7 @@ import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
 
-public class AllureListener extends SeleniumTest
+public class AllureListener
         implements ITestListener {
 
     @Attachment(
@@ -17,8 +17,10 @@ public class AllureListener extends SeleniumTest
 
     public byte[] captureScreenshot() {
 
-        return ((TakesScreenshot) driver)
-                .getScreenshotAs(OutputType.BYTES);
+        return ((TakesScreenshot)
+                SeleniumTest.driver)
+                .getScreenshotAs(
+                        OutputType.BYTES);
     }
 
     @Override
@@ -28,31 +30,22 @@ public class AllureListener extends SeleniumTest
         captureScreenshot();
 
         System.out.println(
-                "Screenshot captured for failed test : "
-                        + result.getName());
+                "Screenshot attached to Allure report");
     }
 
     @Override
     public void onTestStart(
-            ITestResult result) {
-
-    }
+            ITestResult result) {}
 
     @Override
     public void onTestSuccess(
-            ITestResult result) {
-
-    }
+            ITestResult result) {}
 
     @Override
     public void onTestSkipped(
-            ITestResult result) {
-
-    }
+            ITestResult result) {}
 
     @Override
     public void onFinish(
-            ITestContext context) {
-
-    }
+            ITestContext context) {}
 }

@@ -29,7 +29,7 @@ import java.util.logging.Logger;
 
 public class SeleniumTest {
 
-    protected WebDriver driver;
+    public static WebDriver driver;
 
     private Logger logger =
             Logger.getLogger(SeleniumTest.class.getName());
