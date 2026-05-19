@@ -6,8 +6,12 @@
 
     <parameter name="browser" value="chrome"/>
     <parameter name="runmode" value="local"/>
+    <listeners>
+        <listener class-name="utils.AllureListener"/>
+    </listeners>
 
     <test name="School Fees Local Test">
+
 
         <classes>
 
