@@ -1,7 +1,7 @@
 package modules.StudentProfile.Tests;
 
 import base.SeleniumTest;
-import io.qameta.allure.Description;
+import io.qameta.allure.*;
 import modules.StudentProfile.Pages.StudentProfilePage;
 import modules.login.pages.LoginPage;
 import org.openqa.selenium.By;
@@ -13,6 +13,9 @@ import org.testng.annotations.Test;
 import java.time.Duration;
 
 public class BasicInfoTest extends SeleniumTest {
+    @Epic("Student Profile")
+    @Feature("Basic Info Details")
+    @Severity(SeverityLevel.NORMAL)
     @Description("Validate Student Profile Basic Info")
     @Test
     public void validateStudentProfile() throws InterruptedException {

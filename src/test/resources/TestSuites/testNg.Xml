@@ -1,0 +1,42 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Connect App Suite" parallel="false">
+
+    <test name="Positive Login Test">
+        <parameter name="runmode" value="browserstack"/>
+        <classes>
+            <class name="modules.login.tests.ConnectLoginTest"/>
+        </classes>
+    </test>
+
+    <test name="Leave Request Test">
+        <parameter name="browser" value="chrome"/>
+        <classes>
+            <class name="modules.Leaverequest.test.ConnectLeaveRequest"/>
+        </classes>
+    </test>
+    <test name="Catering Topup">
+        <parameter name="browser" value="chrome"/>
+        <classes>
+            <class name="modules.catering.topuptest.CateringTest"/>
+        </classes>
+    </test>
+    <test name="Transport service Request">
+        <parameter name="browser" value="chrome"/>
+        <classes>
+            <class name="modules.TransportServiceRequests.ServicerequestTest.TransportServiceRequest"/>
+        </classes>
+    </test>
+    <test name="Banner Test">
+        <parameter name="browser" value="chrome"/>
+        <classes>
+            <class name="modules.Homepage.DashboardTests.BannerTest"/>
+        </classes>
+    </test>
+    <test name="Dashboard Redirection Test">
+        <parameter name="browser" value="chrome"/>
+        <classes>
+            <class name="modules.Homepage.DashboardTests.DashboardRedirectionTest"/>
+        </classes>
+    </test>
+
+</suite>

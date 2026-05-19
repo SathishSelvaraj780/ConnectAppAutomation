@@ -1,7 +1,7 @@
 package modules.StudentProfile.Tests;
 
 import base.SeleniumTest;
-import io.qameta.allure.Description;
+import io.qameta.allure.*;
 import modules.StudentProfile.Pages.StudentProfilePage;
 import modules.login.pages.LoginPage;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -11,6 +11,9 @@ import org.testng.annotations.Test;
 import java.time.Duration;
 
 public class AttendanceTest extends SeleniumTest {
+    @Epic("Student Profile")
+    @Feature("Attendence Details")
+    @Severity(SeverityLevel.NORMAL)
     @Description("Validate Student Profile Attendance Details")
     @Test
     public void verifyAttendanceDetails() {
