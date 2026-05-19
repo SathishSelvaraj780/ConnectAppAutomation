@@ -99,7 +99,7 @@
                 <version>${surefire.version}</version>
                 <configuration>
                     <suiteXmlFiles>
-                        <suiteXmlFile>src/test/resources/Test Suites/testNg.Xml</suiteXmlFile>
+                        <suiteXmlFile>src/test/resources/TestSuites/LocalStuProfileTest.xml</suiteXmlFile>
                     </suiteXmlFiles>
                 </configuration>
             </plugin>
