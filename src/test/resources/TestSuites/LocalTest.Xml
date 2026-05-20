@@ -16,7 +16,7 @@
         <classes>
 
 
-            <class name="modules.Activities.Tests.ActivitiesTest"/>
+            <class name="modules.Activities.tests.ActivitiesTest"/>
 
         </classes>
 
