@@ -15,6 +15,7 @@
 
         <classes>
 
+
             <class name="modules.Activities.Tests.ActivitiesTest"/>
 
         </classes>
