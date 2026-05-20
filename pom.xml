@@ -38,7 +38,6 @@
             <groupId>org.testng</groupId>
             <artifactId>testng</artifactId>
             <version>${testng.version}</version>
-            <scope>test</scope>
         </dependency>
 
         <!-- Selenium -->
@@ -49,12 +48,13 @@
         </dependency>
 
         <!-- BrowserStack SDK -->
+        <!--
         <dependency>
             <groupId>com.browserstack</groupId>
             <artifactId>browserstack-java-sdk</artifactId>
             <version>1.41.4</version>
         </dependency>
-
+        -->
         <!-- Cucumber Java -->
         <dependency>
             <groupId>io.cucumber</groupId>
