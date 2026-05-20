@@ -15,7 +15,7 @@
 
         <classes>
 
-            <class name="modules.NPSSurvey.Tests.validateNPSSurvey"/>
+            <class name="modules.Requests.Tests.GatePassTest"/>
 
         </classes>
 
