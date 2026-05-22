@@ -12,12 +12,10 @@
 
     <test name="School Fees Local Test">
 
-
         <classes>
-
-
-            <class name="modules.Activities.tests.ActivitiesTest"/>
-
+        
+        <class name="modules.schoolcalendar.tests.SchoolTest"/>
+            
         </classes>
 
     </test>

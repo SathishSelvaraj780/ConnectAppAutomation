@@ -102,7 +102,7 @@ public class SeleniumTest {
 
                     ChromeOptions options = new ChromeOptions();
 
-                    options.addArguments("--force-device-scale-factor=0.50");
+                    options.addArguments("--force-device-scale-factor=0.80");
                     
 
                     driver = new ChromeDriver(options);

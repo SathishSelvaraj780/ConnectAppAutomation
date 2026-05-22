@@ -1,5 +1,6 @@
 package modules.academics.pages;
 
+import java.io.File;
 import java.time.Duration;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -67,6 +68,7 @@ public class AcademicReports
 		Thread.sleep(4000);
 	}
 
+
 	public void closePdfViewer() {
 
 	    By modal = By.id("report-dialog");
@@ -96,5 +98,33 @@ public class AcademicReports
 		wait.until(ExpectedConditions.elementToBeClickable(cat4DownloadReport)).click();
 		Thread.sleep(8000);
 	}
+	
+public static boolean waitForFileDownload(String downloadPath, String fileName, int timeoutSeconds) 
+{
+    File dir = new File(downloadPath);
+    int waited = 0;
+
+    while (waited < timeoutSeconds) {
+        File[] files = dir.listFiles();
+
+        if (files != null) {
+            for (File file : files) {
+                if (file.getName().contains(fileName)
+                        && !file.getName().endsWith(".crdownload")
+                        && file.length() > 0) {
+                    return true;   // ✅ Found your file → stop immediately
+                }
+            }
+        }
+
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {}
+
+        waited++;
+    }
+
+    return false;  
+}
 	
 }

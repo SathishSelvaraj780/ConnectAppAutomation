@@ -5,18 +5,21 @@ import java.time.Duration;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 import base.SeleniumTest;
 import modules.login.pages.LoginPage;
 import modules.schoolcalendar.pages.SchoolCalendar;
 
 
-public class SchoolTest extends SeleniumTest
-
-{
+public class SchoolTest extends SeleniumTest {
 	
 	@Test
 	public void schoolCalendarModule() throws InterruptedException 
+	
+	{
+	
+	try
 	
 	{
 
@@ -45,9 +48,22 @@ public class SchoolTest extends SeleniumTest
 
 wait.until(ExpectedConditions.visibilityOfElementLocated(
 		By.id("txtSearchMonth")));
-
-		event.searchEventMonth();
+By EventName = By.xpath("//span[text()='Fee Payment Due Date for Mar-2026']");
+//By EventName = By.xpath("//div[contains(@class,'event-wrap')]//span[contains(text(),'Fee Payment Due Date')]");
+Assert.assertTrue(wait.until(ExpectedConditions.visibilityOfElementLocated(EventName)).isDisplayed(),
+    "Event Name not Displayed"
+);
+System.out.println("Event Name displayed Successfully");
+	event.searchEventMonth();
+		Thread.sleep(3000);
 		
 	}
-	
+		catch (Exception e) {
+
+	        e.printStackTrace();
+
+	        throw e;            
+	}
+	}
 }
+	

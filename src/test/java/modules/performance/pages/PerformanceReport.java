@@ -19,6 +19,7 @@ public class PerformanceReport
 	private By PeriodicTestViewReport = By.xpath(
 		    "//div[normalize-space()='Periodic Test 1']/following::a[1]"
 		);
+	private By performanceHeading = By.xpath("//div[@id='performance_test_popup']//div[@class='heading']");
 	private By PeriodicDownloadReport = By.xpath("//div[@class='name' and normalize-space()='Periodic Test 1']"
 			+ "/following::a[normalize-space()='Download'][1]");
 	
@@ -63,6 +64,11 @@ public class PerformanceReport
 		Thread.sleep(3000);
 	}
 	
+
+public String getPerformanceModalTitle() {
+    return wait.until(ExpectedConditions.visibilityOfElementLocated(performanceHeading)).getText();
+}
+
 	public void closePdfViewer() {
 
 	    By modal = By.id("performance_test_popup");

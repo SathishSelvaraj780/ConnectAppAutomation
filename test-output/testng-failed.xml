@@ -3,13 +3,16 @@
 <suite name="Failed suite [Local Test Suite]" guice-stage="DEVELOPMENT">
   <parameter name="runmode" value="local"/>
   <parameter name="browser" value="chrome"/>
+  <listeners>
+    <listener class-name="utils.AllureListener"/>
+  </listeners>
   <test thread-count="5" name="School Fees Local Test(failed)">
     <classes>
       <class name="modules.schoolcalendar.tests.SchoolTest">
         <methods>
           <include name="tearDown"/>
-          <include name="setUp"/>
           <include name="schoolCalendarModule"/>
+          <include name="setUp"/>
         </methods>
       </class> <!-- modules.schoolcalendar.tests.SchoolTest -->
     </classes>

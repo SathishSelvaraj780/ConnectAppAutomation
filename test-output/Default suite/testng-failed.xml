@@ -6,8 +6,8 @@
       <class name="modules.schoolcalendar.tests.SchoolTest">
         <methods>
           <include name="tearDown"/>
-          <include name="schoolCalendarModule"/>
           <include name="setUp"/>
+          <include name="schoolCalendarModule"/>
         </methods>
       </class> <!-- modules.schoolcalendar.tests.SchoolTest -->
     </classes>

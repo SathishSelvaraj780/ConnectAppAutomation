@@ -1,8 +1,11 @@
 package modules.performance.tests;
 
 import java.time.Duration;
+
+import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 import base.SeleniumTest;
 import modules.login.pages.LoginPage;
@@ -29,6 +32,12 @@ public class PerformanceTest extends SeleniumTest
 		performancereport1.selectYear("2024-2025");
 		performancereport1.waitForPeriodicTest();
 		performancereport1.clickPeriodicTestViewReport();
+
+Assert.assertTrue(
+		performancereport1.getPerformanceModalTitle().contains("Student Performance Chart"),
+    "Text not visible"
+);
+System.out.println("File Opened Successfully");
 		performancereport1.closePdfViewer();
 		performancereport1.PeriodicDownloadReport();
 		

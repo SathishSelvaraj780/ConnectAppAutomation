@@ -3,6 +3,7 @@ package modules.academics.tests;
 import java.time.Duration;
 import java.util.List;
 
+import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -18,7 +19,8 @@ public class AcademicTest extends SeleniumTest {
 	@Test
 	public void appAcademicReports() throws InterruptedException {
 		
-
+try
+{
 
 		driver.get(config.getProperty("app.url"));
 
@@ -47,10 +49,26 @@ wait.until(ExpectedConditions.visibilityOfElementLocated(
 				.visibilityOfElementLocated(By.xpath("//div[@class='name' and normalize-space()='Cat4 Reports']")));
 
 		academicreport1.clickCat4ViewReport();
+		By pdfFrame = By.xpath("//iframe[contains(@type,'pdf')]");
+Assert.assertTrue(wait.until(ExpectedConditions.visibilityOfElementLocated(pdfFrame)).isDisplayed(),
+    "PDF not opened"
+);
 		academicreport1.closePdfViewer();
+		String downloadPath = "C:\\Users\\TG2971\\Downloads";
 		academicreport1.clickCat4DownloadReport();
-	
-		
+
+Assert.assertTrue(
+    AcademicReports.waitForFileDownload(downloadPath, "reportCard_13100100040575", 20),
+    "Download failed or file not found"
+);
+System.out.println("File Downloaded Successfully");
 	}
-	
+
+catch (Exception e) {
+
+        e.printStackTrace();
+
+        throw e;            
+}
+	}
 }

@@ -50,7 +50,7 @@
               <ul>
                 <li>
                   <a href="#" panel-name="test-xml-Local_Test_Suite" class="navigator-link ">
-                    <span>C:\Users\TG2971\OneDrive - Expleo France\Desktop\Gems Automation Project\ConnectAppAutomation\src\test\resources\Test Suites\LocalTest.Xml</span>
+                    <span>C:\Users\TG2971\ConnectAppAutomation\src\test\resources\TestSuites\LocalTest.Xml</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
@@ -136,7 +136,7 @@
         </div> <!-- panel Local_Test_Suite -->
         <div panel-name="test-xml-Local_Test_Suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">C:\Users\TG2971\OneDrive - Expleo France\Desktop\Gems Automation Project\ConnectAppAutomation\src\test\resources\Test Suites\LocalTest.Xml</span>
+            <span class="header-content">C:\Users\TG2971\ConnectAppAutomation\src\test\resources\TestSuites\LocalTest.Xml</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <pre>
@@ -145,6 +145,9 @@
 &lt;suite name=&quot;Local Test Suite&quot; guice-stage=&quot;DEVELOPMENT&quot;&gt;
   &lt;parameter name=&quot;runmode&quot; value=&quot;local&quot;/&gt;
   &lt;parameter name=&quot;browser&quot; value=&quot;chrome&quot;/&gt;
+  &lt;listeners&gt;
+    &lt;listener class-name=&quot;utils.AllureListener&quot;/&gt;
+  &lt;/listeners&gt;
   &lt;test thread-count=&quot;5&quot; name=&quot;School Fees Local Test&quot;&gt;
     &lt;classes&gt;
       &lt;class name=&quot;modules.schoolcalendar.tests.SchoolTest&quot;/&gt;
@@ -191,7 +194,7 @@ data.addRows(1);
 data.setCell(0, 0, 0)
 data.setCell(0, 1, 'schoolCalendarModule')
 data.setCell(0, 2, 'modules.schoolcalendar.tests.SchoolTest')
-data.setCell(0, 3, 90017);
+data.setCell(0, 3, 95027);
 window.suiteTableData['Local_Test_Suite']= { tableData: data, tableDiv: 'times-div-Local_Test_Suite'}
 return data;
 }
@@ -229,11 +232,11 @@ return data;
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">schoolCalendarModule</span>
-                <span class="method-start">5530 ms</span>
+                <span class="method-start">2780 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">tearDown</span>
-                <span class="method-start">95553 ms</span>
+                <span class="method-start">97856 ms</span>
               </div> <!-- configuration-method after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
