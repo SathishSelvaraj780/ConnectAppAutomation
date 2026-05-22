@@ -1,5 +1,6 @@
 package modules.SchoolFees.Pages;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -34,6 +35,7 @@ public class SchoolFeesPages {
     public void clickFeePaymentTab() {
         wait.until(ExpectedConditions.elementToBeClickable(FeePaymentTab)).click();
     }
+    @Step("Click on FeePayment")
     public void clickFeePayment() {
         wait.until(ExpectedConditions.elementToBeClickable(FeePayment)).click();
     }
@@ -81,6 +83,7 @@ public class SchoolFeesPages {
         public void waitForProceedButton(WebDriverWait wait) {
         wait.until(ExpectedConditions.elementToBeClickable(SchoolfeeProceedtoPay));
         }
+        @Step("Click on Proceed to Pay")
         public void clickFinalProceedToPay() {
         wait.until(ExpectedConditions.elementToBeClickable(FinalClickandProceedToPay)).click();
         }

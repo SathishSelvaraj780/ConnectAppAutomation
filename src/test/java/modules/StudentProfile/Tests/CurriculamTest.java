@@ -9,11 +9,11 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import java.time.Duration;
-
+@Epic("Student Profile")
+@Feature("Curriculam Details")
 public class CurriculamTest extends SeleniumTest
 {
-    @Epic("Student Profile")
-    @Feature("Curriculam Details")
+
     @Severity(SeverityLevel.NORMAL)
     @Description("Validate Student Profile Curriculam Details")
     @Test

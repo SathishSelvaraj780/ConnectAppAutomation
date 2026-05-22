@@ -1,6 +1,7 @@
 package modules.SchoolFees.Tests;
 
 import base.SeleniumTest;
+import io.qameta.allure.*;
 import modules.SchoolFees.Pages.SchoolFeesPages;
 import modules.login.pages.LoginPage;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -9,9 +10,12 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import java.time.Duration;
-
+@Epic("School Fee")
+@Feature("School Fee Payment")
 public class RewardsredemptionTest extends SeleniumTest {
 
+    @Severity(SeverityLevel.CRITICAL)
+    @Description("Validate user can able to pay School Fee through Reward Points")
     @Test
     public void VerifyRewardsRedemption() {
         SchoolFeesPages schoolFees;

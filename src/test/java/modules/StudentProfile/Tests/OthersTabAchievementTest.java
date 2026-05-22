@@ -8,10 +8,10 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
 
 import java.time.Duration;
-
+@Epic("Student Profile")
+@Feature("Achievment Details")
 public class OthersTabAchievementTest extends SeleniumTest {
-    @Epic("Student Profile")
-    @Feature("Achievment Details")
+
     @Severity(SeverityLevel.NORMAL)
     @Description("Validate Student Profile Achievement Details")
     @Test

@@ -8,10 +8,10 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
 
 import java.time.Duration;
-
+@Epic("Student Profile")
+@Feature("Other Details")
 public class OthersLibraryUsageTest extends SeleniumTest {
-    @Epic("Student Profile")
-    @Feature("Other Details")
+
     @Severity(SeverityLevel.NORMAL)
     @Description("Validate Student Profile Library Usage Details")
     @Test

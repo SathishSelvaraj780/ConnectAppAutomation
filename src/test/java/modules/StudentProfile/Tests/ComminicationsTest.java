@@ -9,10 +9,10 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import java.time.Duration;
-
+@Epic("Student Profile")
+@Feature("Communications Details")
 public class ComminicationsTest extends SeleniumTest {
-    @Epic("Student Profile")
-    @Feature("Communications Details")
+
     @Severity(SeverityLevel.NORMAL)
     @Description("Validate Student Profile Communications Details")
     @Test

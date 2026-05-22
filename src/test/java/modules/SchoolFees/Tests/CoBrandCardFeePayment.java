@@ -1,6 +1,7 @@
 package modules.SchoolFees.Tests;
 
 import base.SeleniumTest;
+import io.qameta.allure.*;
 import modules.SchoolFees.Pages.SchoolFeesPages;
 import modules.catering.pages.CateringTopUp;
 import modules.login.pages.LoginPage;
@@ -11,9 +12,12 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import java.time.Duration;
-
+@Epic("School Fee")
+@Feature("School Fee Payment")
 public class CoBrandCardFeePayment extends SeleniumTest {
 
+    @Severity(SeverityLevel.CRITICAL)
+    @Description("Validate user can able to pay School Fee through GEMS CO-Brand Card")
     @Test
     public void VerifyCoBrandCardFeePayment() {
 

@@ -11,10 +11,10 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import java.time.Duration;
-
+@Epic("Student Profile")
+@Feature("Basic Info Details")
 public class BasicInfoTest extends SeleniumTest {
-    @Epic("Student Profile")
-    @Feature("Basic Info Details")
+
     @Severity(SeverityLevel.NORMAL)
     @Description("Validate Student Profile Basic Info")
     @Test

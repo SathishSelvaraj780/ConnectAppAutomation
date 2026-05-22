@@ -1,6 +1,7 @@
 package modules.SchoolFees.Tests;
 
 import base.SeleniumTest;
+import io.qameta.allure.*;
 import modules.SchoolFees.Pages.SchoolFeesPages;
 import modules.login.pages.LoginPage;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -9,9 +10,12 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import java.time.Duration;
-
+@Epic("School Fee")
+@Feature("School Fee Payment")
 public class SchoolFessTest extends SeleniumTest {
 
+    @Severity(SeverityLevel.CRITICAL)
+    @Description("Validate user can able to pay School Fee")
     @Test
     public void VerifySchoolFeesTest() {
         SchoolFeesPages schoolFees;

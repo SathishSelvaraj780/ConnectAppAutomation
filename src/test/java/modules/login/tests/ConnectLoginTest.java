@@ -12,7 +12,7 @@ import java.time.Duration;
 
 public class ConnectLoginTest extends SeleniumTest {
 
-    @Test
+    @Test(priority = 1)
     public void appPositiveLogin() {
         driver.get(config.getProperty("app.url"));
 
@@ -32,7 +32,7 @@ public class ConnectLoginTest extends SeleniumTest {
         );
     }
 
-    @Test
+    @Test(priority = 2)
     public void appNegativeLoginTest(){
         driver.get(config.getProperty("app.url"));
 
@@ -50,7 +50,7 @@ public class ConnectLoginTest extends SeleniumTest {
         Assert.assertEquals(actualError, expectedError);
     }
 
-    @Test
+    @Test(priority = 3,dependsOnMethods = "appPositiveLogin")
     public void appLogoutTest(){
         driver.get(config.getProperty("app.url"));
 

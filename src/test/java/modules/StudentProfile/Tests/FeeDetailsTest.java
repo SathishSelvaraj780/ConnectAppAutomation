@@ -8,11 +8,12 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import java.time.Duration;
 
+import java.time.Duration;
+@Epic("Student Profile")
+@Feature(" FeeDetails")
 public class FeeDetailsTest extends SeleniumTest {
-    @Epic("Student Profile")
-    @Feature(" FeeDetails")
+    @Story("Validate Fee Details Page")
     @Severity(SeverityLevel.NORMAL)
     @Description("Validate Student Profile Fee Details")
     @Test
