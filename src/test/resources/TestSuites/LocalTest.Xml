@@ -15,7 +15,7 @@
 
         <classes>
 
-            <class name="modules.UpdateStudentDetails.Tests.UpdateStudetailswithInvalidData"/>
+            <class name="modules.catering.topuptest.Familyfirstordermeal"/>
 
         </classes>
 

@@ -1,6 +1,7 @@
 package modules.TransportServiceRequests.ServicerequestTest;
 
 import base.SeleniumTest;
+import io.qameta.allure.*;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.Parameters;
@@ -9,11 +10,14 @@ import modules.login.pages.LoginPage;
 import modules.TransportServiceRequests.Servicerequestpage.TransportServiceRequestPages;
 import java.time.Duration;
 
-
+@Epic("Transport Service Requests")
+@Feature("Transport Service Request - Record Medical Condition")
 public class TransportServiceRequest extends SeleniumTest {
+    @Severity(SeverityLevel.NORMAL)
+    @Description("Validate User able to Apply Transport Service Request with Record Medical Condition Category")
     @Test(groups = "regression")
     @Parameters({"browser"})
-    public void ServiceRequestTest(){
+    public void VerifyRecordMedicalConditionServiceRequest(){
         driver.get(config.getProperty("app.url"));
 
         // Step 2: Login with credentials from config

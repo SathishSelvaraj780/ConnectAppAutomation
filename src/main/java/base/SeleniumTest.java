@@ -27,6 +27,7 @@ import java.util.HashMap;
 import java.util.Properties;
 import java.util.logging.Logger;
 
+
 public class SeleniumTest {
 
     public static WebDriver driver;

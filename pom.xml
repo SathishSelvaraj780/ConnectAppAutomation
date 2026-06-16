@@ -20,7 +20,7 @@
 
         <!-- Dependency Versions -->
         <testng.version>7.11.0</testng.version>
-        <selenium.version>4.33.0</selenium.version>
+        <selenium.version>4.11.0</selenium.version>
         <surefire.version>3.2.5</surefire.version>
 
         <!-- Default TestNG Suite -->

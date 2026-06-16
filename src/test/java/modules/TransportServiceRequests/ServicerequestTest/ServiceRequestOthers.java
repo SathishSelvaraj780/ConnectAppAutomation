@@ -1,6 +1,7 @@
 package modules.TransportServiceRequests.ServicerequestTest;
 
 import base.SeleniumTest;
+import io.qameta.allure.*;
 import modules.TransportServiceRequests.Servicerequestpage.TransportServiceRequestPages;
 import modules.login.pages.LoginPage;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -10,7 +11,11 @@ import org.testng.annotations.Test;
 
 import java.time.Duration;
 
+@Epic("Transport Service Requests")
+@Feature("Transport Service Request - Others Category")
 public class ServiceRequestOthers extends SeleniumTest {
+    @Severity(SeverityLevel.NORMAL)
+    @Description("Validate User able to Apply Transport Service Request with Others Category")
     @Test(groups = "regression")
     @Parameters({"browser"})
     public void ServiceRequestTest(){

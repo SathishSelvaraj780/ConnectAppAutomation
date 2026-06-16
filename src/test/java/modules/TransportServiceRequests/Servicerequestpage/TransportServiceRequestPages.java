@@ -1,11 +1,13 @@
 package modules.TransportServiceRequests.Servicerequestpage;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.awt.*;
 import java.time.Duration;
 
 public class TransportServiceRequestPages {
@@ -43,17 +45,17 @@ public class TransportServiceRequestPages {
         this.driver = driver;
         this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
     }
-        //Open Transport Menu
+        @Step("Open Transport Menu")
         public void openTransport(){
             wait.until(ExpectedConditions.elementToBeClickable(TransportMenu)).click();
         }
-        //Open Service request
+        @Step("Open Service request")
     public void openServiceRequest(){
         wait.until(ExpectedConditions.elementToBeClickable(ServiceRequest)).click();
     }
 
 
-
+    @Step("Select Appropraite Category")
     public void selectCategory(){
         WebElement dropdown = wait.until(ExpectedConditions.elementToBeClickable(Category));
         Select select = new Select(dropdown);

@@ -1,6 +1,7 @@
 package modules.catering.topuptest;
 
 import base.SeleniumTest;
+import io.qameta.allure.*;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -9,9 +10,11 @@ import modules.login.pages.LoginPage;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import java.time.Duration;
-
+@Epic("Catering")
+@Feature("Top Up the Wallet")
 public class CateringTest extends SeleniumTest {
-
+    @Severity(SeverityLevel.NORMAL)
+    @Description("Validate user can able to top up the wallet through catering top up menu and redirect to payment gateway")
     @Test
     public void appCateringTopup() {
         driver.get(config.getProperty("app.url"));

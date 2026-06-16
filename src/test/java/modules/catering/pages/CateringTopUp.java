@@ -1,5 +1,6 @@
 package modules.catering.pages;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
@@ -8,6 +9,7 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.awt.*;
 import java.time.Duration;
 
 public class CateringTopUp {
@@ -28,11 +30,11 @@ public class CateringTopUp {
         this.driver = driver;
         this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
     }
-    //Open Catering Menu
+    @Step("Open Catering Menu")
     public void openCateringMenu(){
         wait.until(ExpectedConditions.elementToBeClickable(CateringTopMenu)).click();
     }
-    //Click TopUp
+    @Step("Click TopUp")
     public void openTopUp(){
         wait.until(ExpectedConditions.elementToBeClickable(TopUpMenu)).click();
     }
@@ -41,14 +43,14 @@ public class CateringTopUp {
         Actions Action = new Actions(driver);
         Action.sendKeys(Keys.END).perform();
     }
-    //Enter amount
+    @Step("Enter Amount")
     public void enterAmount(int amount){
         WebElement amountField = wait.until(ExpectedConditions.visibilityOfElementLocated(InputAmountfield));
         amountField.clear();
         amountField.sendKeys(String.valueOf(amount));
         amountField.sendKeys(Keys.TAB);
     }
-    //Proceed to payment
+    @Step("Proceed to Payment")
     public void clickProceed(){
         WebElement button = wait.until(ExpectedConditions.presenceOfElementLocated(ProceedtoPay));
 

@@ -1,6 +1,7 @@
 package modules.TransportServiceRequests.ServicerequestTest;
 
 import base.SeleniumTest;
+import io.qameta.allure.*;
 import modules.TransportServiceRequests.Servicerequestpage.TransportServiceRequestPages;
 import modules.login.pages.LoginPage;
 import org.openqa.selenium.Alert;
@@ -12,9 +13,13 @@ import org.openqa.selenium.TimeoutException;
 
 import java.time.Duration;
 
-public class ServiceRequestRFID extends SeleniumTest {
+@Epic("Transport Service Requests")
+@Feature("Transport Service Request - RFID Category")
 
-@Test
+public class ServiceRequestRFID extends SeleniumTest {
+    @Severity(SeverityLevel.NORMAL)
+    @Description("Validate User able to Apply Transport Service Request with RFID Category")
+    @Test
     public void VerifyUsercanapplyforRFID() {
 
     driver.get(config.getProperty("app.url"));
