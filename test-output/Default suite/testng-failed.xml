@@ -3,13 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="modules.schoolcalendar.tests.SchoolTest">
+      <class name="modules.StudentParentDetails.test.StudentParentDetailsTest">
         <methods>
           <include name="tearDown"/>
+          <include name="ParentDetailsUpdate"/>
           <include name="setUp"/>
-          <include name="schoolCalendarModule"/>
         </methods>
-      </class> <!-- modules.schoolcalendar.tests.SchoolTest -->
+      </class> <!-- modules.StudentParentDetails.test.StudentParentDetailsTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

@@ -8,13 +8,13 @@
   </listeners>
   <test thread-count="5" name="School Fees Local Test(failed)">
     <classes>
-      <class name="modules.schoolcalendar.tests.SchoolTest">
+      <class name="modules.StudentParentDetails.test.StudentParentDetailsTest">
         <methods>
           <include name="tearDown"/>
-          <include name="schoolCalendarModule"/>
+          <include name="ParentDetailsUpdate"/>
           <include name="setUp"/>
         </methods>
-      </class> <!-- modules.schoolcalendar.tests.SchoolTest -->
+      </class> <!-- modules.StudentParentDetails.test.StudentParentDetailsTest -->
     </classes>
   </test> <!-- School Fees Local Test(failed) -->
 </suite> <!-- Failed suite [Local Test Suite] -->
