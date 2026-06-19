@@ -16,7 +16,7 @@ public class CurriculamTest extends SeleniumTest
 
     @Severity(SeverityLevel.NORMAL)
     @Description("Validate Student Profile Curriculam Details")
-    @Test
+    @Test(groups = {"regression"})
     public void VerifyCurriculamDetailsPage()
     {
         driver.get(config.getProperty("app.url"));

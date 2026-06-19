@@ -2,6 +2,7 @@ package modules.schoolcalendar.tests;
 
 import java.time.Duration;
 
+import io.qameta.allure.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -11,10 +12,12 @@ import base.SeleniumTest;
 import modules.login.pages.LoginPage;
 import modules.schoolcalendar.pages.SchoolCalendar;
 
-
+@Epic("School Calendar")
+@Feature("View Calender")
 public class SchoolTest extends SeleniumTest {
-	
-	@Test
+	@Severity(SeverityLevel.CRITICAL)
+	@Description("Validate user can able to view the school calendar and search for events")
+	@Test(groups = {"regression"})
 	public void schoolCalendarModule() throws InterruptedException 
 	
 	{

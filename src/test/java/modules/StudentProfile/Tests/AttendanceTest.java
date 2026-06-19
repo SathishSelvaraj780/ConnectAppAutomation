@@ -14,7 +14,7 @@ import java.time.Duration;
 public class AttendanceTest extends SeleniumTest {
     @Severity(SeverityLevel.NORMAL)
     @Description("Validate Student Profile Attendance Details")
-    @Test
+    @Test(groups = {"regression"})
     public void verifyAttendanceDetails() {
         // Test implementation for attendance details verification
         driver.get(config.getProperty("app.url"));

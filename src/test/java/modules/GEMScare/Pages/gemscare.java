@@ -1,8 +1,6 @@
 package modules.GEMScare.Pages;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -35,6 +33,67 @@ public class gemscare {
     private By MPrimaryBankName = By.xpath("//input[@id=\"MPrimaryBankName\"]");
 
 
+    public gemscare(WebDriver driver) {
+        this.driver = driver;
+        this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+    }
+
+    public void enterText(By locator, String value) {
+
+        WebElement element = wait.until(
+                ExpectedConditions.elementToBeClickable(locator));
+
+        element.sendKeys(Keys.CONTROL + "a");
+
+        element.sendKeys(Keys.DELETE);
+
+        element.sendKeys(value);
+    }
+
+    public void clickRequestsmenu(){
+        wait.until(ExpectedConditions.elementToBeClickable(Topmenu)).click();
+    }
+
+    public void clickGemsCareMenu(){
+        wait.until(ExpectedConditions.elementToBeClickable(GemsCareMenu)).click();
+    }
+
+    public void enterPosition(String position){
+        enterText(Position, position);
+    }
+
+    public void enterEmployedsince(){
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("document.getElementById('FEmployedSince').value='01/Jan/2020';");
+    }
+
+    public void enterManagerName(String name){
+        enterText(ManagerName, name);
+    }
+
+    public void enterOfficeTelephone(String telephone){
+        enterText(OfficeTelephone, telephone);
+    }
+
+    public void enterPrimaryBankName(String name){
+        enterText(PrimaryBankName, name);
+    }
+
+    public void selectMotherEmploymentType(){
+        WebElement dropdown = wait.until(
+                ExpectedConditions.elementToBeClickable(SelectMotherEmploymentType));
+
+        dropdown.click();
+
+        WebElement option = wait.until(
+                ExpectedConditions.elementToBeClickable(
+                        By.xpath("//span[text()='Salaried']")
+                )
+        );
+
+        option.click();
+
+    }
 
     public void fillLoanDetails(int rowIndex,
                                 String loanType,
@@ -98,4 +157,64 @@ public class gemscare {
         bankNameField.clear();
         bankNameField.sendKeys(bankName);
     }
+
+    public void fillmonthlyexpenses(String expenseName, String amount, String employerAmount ){
+        By amountTxt = By.xpath(
+                "//td[contains(normalize-space(),'" + expenseName + "')]" +
+                        "/following-sibling::td[1]//input");
+
+        By employerAmountTxt = By.xpath(
+                "//td[contains(normalize-space(),'" + expenseName + "')]" +
+                        "/following-sibling::td[2]//input");
+
+        driver.findElement(amountTxt).clear();
+        driver.findElement(amountTxt).sendKeys(amount);
+
+        driver.findElement(employerAmountTxt).clear();
+        driver.findElement(employerAmountTxt).sendKeys(employerAmount);
+    }
+    public void enterReferenceDetails(int rowNo,
+                                      String name,
+                                      String mobileNo,
+                                      String email,
+                                      String relation) {
+
+        // Name
+        driver.findElement(By.xpath(
+                        "(//input[contains(@name,'ReferencesName')])[" + rowNo + "]"))
+                .sendKeys(name);
+
+        // Mobile Number
+        driver.findElement(By.xpath(
+                        "(//input[contains(@name,'ReferencesMobileNumber')])[" + rowNo + "]"))
+                .sendKeys(mobileNo);
+
+        // Email Address
+        driver.findElement(By.xpath(
+                        "(//input[contains(@name,'ReferencesEmailAddress')])[" + rowNo + "]"))
+                .sendKeys(email);
+
+        // Relation
+        driver.findElement(By.xpath(
+                        "(//input[contains(@name,'ReferencesRelation')])[" + rowNo + "]"))
+                .sendKeys(relation);
+    }
+
+    public void openAccordion(String accordionName) {
+        By accordion = org.openqa.selenium.By.xpath(
+                "//button[contains(@class,'custom-accordion') and contains(.,'"
+                        + accordionName + "')]");
+
+        WebElement accordionElement = wait.until(
+                ExpectedConditions.visibilityOfElementLocated(accordion));
+
+        ((JavascriptExecutor) driver)
+                .executeScript(
+                        "arguments[0].scrollIntoView({block:'center'});",
+                        accordionElement);
+
+        wait.until(ExpectedConditions.elementToBeClickable(accordionElement))
+                .click();
+    }
+
     }

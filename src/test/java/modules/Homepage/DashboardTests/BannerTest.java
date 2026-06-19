@@ -1,5 +1,6 @@
 package modules.Homepage.DashboardTests;
 import base.SeleniumTest;
+import io.qameta.allure.*;
 import modules.Homepage.DashboardPages.BannerPages;
 import modules.login.pages.LoginPage;
 import org.openqa.selenium.By;
@@ -9,20 +10,22 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import java.time.Duration;
-
+@Epic("Homepage")
+@Feature("Banner Display")
 public class BannerTest extends SeleniumTest {
-
-    @Test
+    @Severity(SeverityLevel.NORMAL)
+    @Description("Validate user can able to see the banner on the dashboard after login")
+    @Test(groups = {"sanity", "regression"})
     public void verifyBannerIsDisplayed() {
 
-        driver.get(config.getProperty("app.url"));
-
-        LoginPage login = new LoginPage(driver);
-        login.enterUsername(config.getProperty("test.username", "shakeel.s22"));
+        getDriver().get(config.getProperty("app.url"));
+        LoginPage login = new LoginPage(getDriver());
+        login.enterUsername(config.getProperty("test.username", "faizal.a9"));
         login.enterPassword(config.getProperty("test.password", "Welcome1234@"));
         login.clickLogin();
 
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+        WebDriverWait     wait =
+                new WebDriverWait(getDriver(), Duration.ofSeconds(20));
 
         // ✅ WAIT for dashboard element instead of URL
         wait.until(ExpectedConditions.visibilityOfElementLocated(

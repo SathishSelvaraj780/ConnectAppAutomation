@@ -16,7 +16,7 @@ public class SchoolFessTest extends SeleniumTest {
 
     @Severity(SeverityLevel.CRITICAL)
     @Description("Validate user can able to pay School Fee")
-    @Test
+    @Test(groups = {"regression"})
     public void VerifySchoolFeesTest() {
         SchoolFeesPages schoolFees;
         driver.get(config.getProperty("app.url"));

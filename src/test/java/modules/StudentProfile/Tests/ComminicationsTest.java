@@ -15,7 +15,7 @@ public class ComminicationsTest extends SeleniumTest {
 
     @Severity(SeverityLevel.NORMAL)
     @Description("Validate Student Profile Communications Details")
-    @Test
+    @Test(groups = {"regression"})
     public void validateAllMessageAccordions() throws InterruptedException {
 
         driver.get(config.getProperty("app.url"));

@@ -18,7 +18,7 @@ import java.util.Arrays;
 public class UpdateGeneralStudentDetails extends SeleniumTest {
     @Severity(SeverityLevel.CRITICAL)
     @Description("Validate user able to Update General Student details")
-    @Test
+    @Test(groups = "regression")
     public void TestUpdateStudentDetails() {
         driver.get(config.getProperty("app.url"));
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));

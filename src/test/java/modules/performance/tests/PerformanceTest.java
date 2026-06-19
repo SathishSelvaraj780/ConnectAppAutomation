@@ -2,6 +2,7 @@ package modules.performance.tests;
 
 import java.time.Duration;
 
+import io.qameta.allure.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -10,12 +11,15 @@ import org.testng.annotations.Test;
 import base.SeleniumTest;
 import modules.login.pages.LoginPage;
 import modules.performance.pages.PerformanceReport;
-
+@Epic("Reports")
+@Feature("Performmance Reports")
 public class PerformanceTest extends SeleniumTest
 
 {
-	@Test
-	public void appAcademicReports() throws InterruptedException {
+	@Severity(SeverityLevel.CRITICAL)
+	@Description("Validate user can able to view and download performance reports")
+	@Test(groups = {"regression"})
+	public void appPerformanceReports() throws InterruptedException {
 
 		driver.get(config.getProperty("app.url"));
 

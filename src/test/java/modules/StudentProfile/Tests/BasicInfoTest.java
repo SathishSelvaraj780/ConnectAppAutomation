@@ -17,7 +17,7 @@ public class BasicInfoTest extends SeleniumTest {
 
     @Severity(SeverityLevel.NORMAL)
     @Description("Validate Student Profile Basic Info")
-    @Test
+    @Test(groups = {"regression"})
     public void validateStudentProfile() throws InterruptedException {
         driver.get(config.getProperty("app.url"));
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));

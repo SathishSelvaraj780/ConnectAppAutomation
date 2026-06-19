@@ -7,6 +7,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
+import java.util.Arrays;
 
 public class TransportRegister {
 
@@ -61,5 +62,6 @@ public class TransportRegister {
     public void clickNextButton(){
         wait.until(ExpectedConditions.elementToBeClickable(InfoNxtButton)).click();
     }
+
 
 }

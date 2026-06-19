@@ -85,7 +85,10 @@ public class SeleniumTest {
 
                     WebDriverManager.firefoxdriver().setup();
 
-                    driver = new FirefoxDriver();
+                    WebDriver driverInstance =
+                            new FirefoxDriver();
+                    driver = driverInstance;
+                    DriverFactory.setDriver(driverInstance);
 
                     break;
 
@@ -93,7 +96,11 @@ public class SeleniumTest {
 
                     WebDriverManager.edgedriver().setup();
 
-                    driver = new EdgeDriver();
+                    driverInstance = new EdgeDriver();
+
+                    driver = driverInstance;
+
+                    DriverFactory.setDriver(driverInstance);
 
                     break;
 
@@ -104,14 +111,16 @@ public class SeleniumTest {
                     ChromeOptions options = new ChromeOptions();
 
                     options.addArguments("--force-device-scale-factor=0.80");
-                    
-
-                    driver = new ChromeDriver(options);
-
+                    driverInstance = new ChromeDriver(options);
+                    driver = driverInstance;
+                    DriverFactory.setDriver(driverInstance);
 
                     break;
             }
-            driver.manage().window().maximize();
+            DriverFactory.getDriver()
+                    .manage()
+                    .window()
+                    .maximize();
         }
 
         // =========================
@@ -155,11 +164,18 @@ public class SeleniumTest {
                             "bstack:options",
                             chromeBstackOptions);
 
-                    driver = new RemoteWebDriver(
-                            new URL(BROWSERSTACK_URL),
-                            chromeOptions);
-                    driver.manage().window().setSize(
-                            new Dimension(1920, 1080));
+                    WebDriver driverInstance =
+                            new RemoteWebDriver(
+                                    new URL(BROWSERSTACK_URL),
+                                    chromeOptions);
+
+                    driver = driverInstance;
+
+                    DriverFactory.setDriver(driverInstance);
+                    DriverFactory.getDriver()
+                            .manage()
+                            .window()
+                            .setSize(new Dimension(1920, 1080));
 
                     break;
 
@@ -196,9 +212,12 @@ public class SeleniumTest {
                             "bstack:options",
                             firefoxBstackOptions);
 
-                    driver = new RemoteWebDriver(
-                            new URL(BROWSERSTACK_URL),
-                            firefoxOptions);
+                    driverInstance =
+                            new RemoteWebDriver(
+                                    new URL(BROWSERSTACK_URL),
+                                    firefoxOptions);
+                    driver = driverInstance;
+                    DriverFactory.setDriver(driverInstance);
 
                     break;
 
@@ -235,9 +254,12 @@ public class SeleniumTest {
                             "bstack:options",
                             edgeBstackOptions);
 
-                    driver = new RemoteWebDriver(
-                            new URL(BROWSERSTACK_URL),
-                            edgeOptions);
+                    driverInstance =
+                            new RemoteWebDriver(
+                                    new URL(BROWSERSTACK_URL),
+                                    edgeOptions);
+                    driver = driverInstance;
+                    DriverFactory.setDriver(driverInstance);
 
                     break;
             }
@@ -247,7 +269,8 @@ public class SeleniumTest {
         // COMMON SETUP
         // =========================
 
-     driver.manage()
+        DriverFactory.getDriver()
+                .manage()
                 .timeouts()
                 .implicitlyWait(Duration.ofSeconds(10));
 
@@ -256,17 +279,17 @@ public class SeleniumTest {
     @AfterMethod(alwaysRun = true)
 
     public void tearDown() {
-        System.out.println("Closing browser");
+        if (DriverFactory.getDriver() != null) {
 
-        if (driver != null) {
+            DriverFactory.getDriver().quit();
 
-           driver.quit();
-           System.out.println("Browser closed");
+            DriverFactory.unload();
         }
+
     }
 
     public WebDriver getDriver() {
 
-        return driver;
+        return DriverFactory.getDriver();
     }
 }

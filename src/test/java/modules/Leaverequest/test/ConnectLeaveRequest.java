@@ -1,6 +1,7 @@
 package modules.Leaverequest.test;
 
 import base.SeleniumTest;
+import io.qameta.allure.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
@@ -10,10 +11,12 @@ import modules.login.pages.LoginPage;
 
 import java.time.Duration;
 
-
+@Epic("Requests")
+@Feature("Submitt Leave Request")
 public class ConnectLeaveRequest extends SeleniumTest {
-
-    @Test
+   @Severity(SeverityLevel.NORMAL)
+   @Description("Validate user can able to submit leave request successfully")
+    @Test(groups = {"regression"})
      public void testLeaveRequestSubmission() throws InterruptedException {
         // Step 1: Launch application
         driver.get(config.getProperty("app.url"));

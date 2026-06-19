@@ -14,7 +14,7 @@ public class OthersLibraryUsageTest extends SeleniumTest {
 
     @Severity(SeverityLevel.NORMAL)
     @Description("Validate Student Profile Library Usage Details")
-    @Test
+    @Test(groups = {"regression"})
     public void validateothersLibraryUsageTest()
     {
         driver.get(config.getProperty("app.url"));

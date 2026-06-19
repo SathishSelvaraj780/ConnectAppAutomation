@@ -2,6 +2,7 @@ package modules.Activities.tests;
 
 import java.time.Duration;
 
+import io.qameta.allure.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
@@ -10,12 +11,14 @@ import org.testng.annotations.Test;
 import base.SeleniumTest;
 import modules.Activities.pages.Activities;
 import modules.login.pages.LoginPage;
-
+@Epic("Activities")
+@Feature("Unsubscribe from Activity")
 public class ActivitiesUnsubscriptionTest extends SeleniumTest
 
 {
-
-	@Test
+	@Severity(SeverityLevel.CRITICAL)
+	@Description("Validate user can able to unsubscribe from activities")
+	@Test(groups = {"regression"})
 	public void appActivities() throws InterruptedException {
 
 		driver.get(config.getProperty("app.url"));

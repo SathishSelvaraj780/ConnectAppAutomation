@@ -18,7 +18,7 @@ public class CoBrandCardFeePayment extends SeleniumTest {
 
     @Severity(SeverityLevel.CRITICAL)
     @Description("Validate user can able to pay School Fee through GEMS CO-Brand Card")
-    @Test
+    @Test(groups = {"regression"})
     public void VerifyCoBrandCardFeePayment() {
 
         driver.get(config.getProperty("app.url"));

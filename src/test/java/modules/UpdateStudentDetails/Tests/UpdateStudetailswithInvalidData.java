@@ -17,7 +17,7 @@ import java.util.Arrays;
 public class UpdateStudetailswithInvalidData extends SeleniumTest {
     @Severity(SeverityLevel.CRITICAL)
     @Description("Validate user should not able to Update General Student details with Invalid Data")
-    @Test
+    @Test(groups = "regression")
     public void TestUpdateStudentDetailswithInvalidData() {
         driver.get(config.getProperty("app.url"));
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));

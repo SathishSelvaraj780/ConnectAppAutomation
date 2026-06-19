@@ -2,6 +2,7 @@ package modules.Leaveletter.test;
 
 import java.time.Duration;
 
+import io.qameta.allure.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -12,11 +13,12 @@ import base.SeleniumTest;
 import modules.Leaveletter.Page.LeaveLetterPage;
 import modules.Leaverequest.Page.LeaveRequestPage;
 import modules.login.pages.LoginPage;
-
+@Epic("Requests")
+@Feature("Submitt Leave Letter")
 public class LeaveLetterTest extends SeleniumTest {
-	
-
-	@Test
+    @Severity(SeverityLevel.NORMAL)
+    @Description("Validate user can able to submit leave letter request successfully")
+    @Test(groups = {"regression"})
     public void leaveLetterSubmission() throws InterruptedException {
 		
 		try

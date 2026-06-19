@@ -1,6 +1,7 @@
 package modules.Requests.Tests;
 
 import base.SeleniumTest;
+import io.qameta.allure.*;
 import modules.Requests.Pages.RequestModulePages;
 import modules.login.pages.LoginPage;
 import org.openqa.selenium.WebDriver;
@@ -10,10 +11,12 @@ import org.testng.annotations.Test;
 import java.io.File;
 
 import java.time.Duration;
-
+@Epic("Requests")
+@Feature("Upload Photo")
 public class UploadphotoTest extends SeleniumTest {
-
-    @Test
+    @Severity(SeverityLevel.CRITICAL)
+    @Description("Validate user can able to upload photo in the request module")
+    @Test(groups = {"regression"})
     public void VerifyUploadPhotoModule() {
         // Test implementation
         driver.get(config.getProperty("app.url"));

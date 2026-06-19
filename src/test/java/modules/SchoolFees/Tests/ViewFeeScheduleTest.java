@@ -16,7 +16,7 @@ public class ViewFeeScheduleTest extends SeleniumTest {
 
             @Severity(SeverityLevel.NORMAL)
             @Description("Validate user can able to view School Fee Schedules")
-            @Test
+            @Test(groups = {"regression"})
             public void VerifySchoolFeeSchedulePopUpDisplayed   () {
                 SchoolFeesPages schoolFees;
                 driver.get(config.getProperty("app.url"));

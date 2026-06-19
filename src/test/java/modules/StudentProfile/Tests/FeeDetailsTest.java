@@ -16,7 +16,7 @@ public class FeeDetailsTest extends SeleniumTest {
     @Story("Validate Fee Details Page")
     @Severity(SeverityLevel.NORMAL)
     @Description("Validate Student Profile Fee Details")
-    @Test
+    @Test(groups = {"regression"})
     public void VerifyFeeDetailsPage(){
         driver.get(config.getProperty("app.url"));
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));

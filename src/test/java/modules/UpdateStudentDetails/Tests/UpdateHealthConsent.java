@@ -15,7 +15,7 @@ import java.time.Duration;
 public class UpdateHealthConsent extends SeleniumTest {
     @Severity(SeverityLevel.CRITICAL)
     @Description("Validate user able to Update Student Health details")
-    @Test
+    @Test(groups = "regression")
     public void verifyHealthDetailsUpdate() {
         driver.get(config.getProperty("app.url"));
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));

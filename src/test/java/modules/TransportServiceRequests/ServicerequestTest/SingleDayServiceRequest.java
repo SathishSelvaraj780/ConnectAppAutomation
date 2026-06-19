@@ -15,7 +15,7 @@ import java.time.Duration;
 public class SingleDayServiceRequest extends SeleniumTest {
     @Severity(SeverityLevel.NORMAL)
     @Description("Validate User able to Apply Transport Service Request with Single Day Category")
-    @Test
+    @Test(groups = "regression")
     public void VerifySingleDayServiceRequest(){
         driver.get(config.getProperty("app.url"));
         LoginPage Login = new LoginPage(driver);

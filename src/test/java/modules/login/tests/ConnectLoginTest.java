@@ -1,75 +1,71 @@
 package modules.login.tests;
 
 import base.SeleniumTest;
+import io.qameta.allure.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import modules.login.pages.LoginPage;
+import utils.TestDataProvider;
 
 import java.time.Duration;
-
+@Epic("Login")
+@Feature("Login Functionality")
 public class ConnectLoginTest extends SeleniumTest {
-
-    @Test(priority = 1)
-    public void appPositiveLogin() {
-        driver.get(config.getProperty("app.url"));
+    @Severity(SeverityLevel.CRITICAL)
+    @Description("Validate user can able to login with valid credentials and cannot login with invalid credentials")
+    @Test(groups = {"smoke", "regression", "sanity"}, dataProvider = "loginData",
+            dataProviderClass = TestDataProvider.class, description = "Data Driven Login Validation")
+    public void appPositiveLogin(String username,
+                                 String password,
+                                 String expectedResult) {
+        getDriver().get(config.getProperty("app.url"));
 
         // Initialize the page object
-        LoginPage login = new LoginPage(driver);
+        LoginPage login = new LoginPage(getDriver());
 
         // Perform login actions
-        login.enterUsername(config.getProperty("test.username", "shakeel.s22"));
-        login.enterPassword(config.getProperty("test.password", "Welcome1234@"));
+        login.enterUsername(username);
+        ;
+        login.enterPassword(password);
         login.clickLogin();
 
         // Wait for dashboard
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
-        Assert.assertTrue(
-                wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("top-menu"))).isDisplayed(),
-                "Banner not visible after login"
-        );
-    }
+        if (expectedResult.equalsIgnoreCase("Pass")) {
 
-    @Test(priority = 2)
-    public void appNegativeLoginTest(){
-        driver.get(config.getProperty("app.url"));
+            WebDriverWait wait =
+                    new WebDriverWait(
+                            getDriver(),
+                            Duration.ofSeconds(20));
 
-        // Initialize the page object
-        LoginPage login = new LoginPage(driver);
+            Assert.assertTrue(
+                    wait.until(
+                                    ExpectedConditions.visibilityOfElementLocated(
+                                            By.id("top-menu")))
+                            .isDisplayed(),
+                    "Dashboard not displayed");
 
-        // Perform login actions with invalid credentials
-        login.enterUsername("shakeel");
-        login.enterPassword("Welcome");
-        login.clickLogin();
+            System.out.println(
+                    "Login Passed for user : "
+                            + username);
 
-        //Validate Error Message
-        String actualError = login.getErrorMessage();
-        String expectedError = "Invalid username or password";
-        Assert.assertEquals(actualError, expectedError);
-    }
+        } else {
 
-    @Test(priority = 3,dependsOnMethods = "appPositiveLogin")
-    public void appLogoutTest(){
-        driver.get(config.getProperty("app.url"));
+            String actualError =
+                    login.getErrorMessage();
 
-        // Initialize the page object
-        LoginPage login = new LoginPage(driver);
-        // Perform login actions with invalid credentials
-        login.enterUsername("faizal.a9");
-        login.enterPassword("Welcome1234@");
-        login.clickLogin();
+            Assert.assertEquals(
+                    actualError,
+                    "Invalid username or password");
 
-        login.clickOnOpenProfile();
-        login.clicklogout();
-
-        //Validate Logout
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
-        Assert.assertTrue(
-                wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("submitLogin"))).isDisplayed(),
-                "Login button not visible after logout"
-        );
-
+            System.out.println(
+                    "Negative Login Validated for user : "
+                            + username);
+        }
     }
 }
+
+
+

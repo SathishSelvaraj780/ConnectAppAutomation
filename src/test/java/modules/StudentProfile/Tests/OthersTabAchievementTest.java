@@ -14,7 +14,7 @@ public class OthersTabAchievementTest extends SeleniumTest {
 
     @Severity(SeverityLevel.NORMAL)
     @Description("Validate Student Profile Achievement Details")
-    @Test
+    @Test(groups = {"regression"})
     public void OthersTabAchievementTest(){
         // Test implementation for Others Tab Achievement details verification
         driver.get(config.getProperty("app.url"));

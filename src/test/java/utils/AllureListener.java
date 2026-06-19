@@ -1,5 +1,6 @@
 package utils;
 
+import base.DriverFactory;
 import base.SeleniumTest;
 import io.qameta.allure.Attachment;
 import org.openqa.selenium.OutputType;
@@ -12,13 +13,13 @@ public class AllureListener
         implements ITestListener {
 
     @Attachment(
-            value = "Failure Screenshot",
+            value = "{screenshotName}",
             type = "image/png")
 
-    public byte[] captureScreenshot() {
+    public byte[] captureScreenshot(String screenshotName) {
 
         return ((TakesScreenshot)
-                SeleniumTest.driver)
+                DriverFactory.getDriver())
                 .getScreenshotAs(
                         OutputType.BYTES);
     }
@@ -27,10 +28,14 @@ public class AllureListener
     public void onTestFailure(
             ITestResult result) {
 
-        captureScreenshot();
+        if (DriverFactory.getDriver() != null) {
 
-        System.out.println(
-                "Screenshot attached to Allure report");
+            captureScreenshot(
+                    "Failure_" + result.getName());
+
+            System.out.println(
+                    "Screenshot attached to Allure report");
+        }
     }
 
     @Override
@@ -39,11 +44,20 @@ public class AllureListener
 
     @Override
     public void onTestSuccess(
-            ITestResult result) {}
+            ITestResult result) {
+        if (DriverFactory.getDriver() != null) {
+
+            captureScreenshot("Success_" + result.getName());
+            System.out.println(
+                    "Success Screenshot attached");
+        }
+    }
 
     @Override
     public void onTestSkipped(
-            ITestResult result) {}
+            ITestResult result) {
+
+    }
 
     @Override
     public void onFinish(

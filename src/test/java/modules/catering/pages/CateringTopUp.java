@@ -19,7 +19,7 @@ public class CateringTopUp {
 
     //Locators
     private By CateringTopMenu = By.xpath("//*[@data-menutext='Catering']");
-    private By TopUpMenu = By.xpath("//*[@class='button fill btn-36']");
+    private By TopUpMenu = By.xpath("//button[@onclick=\"location.href='/Catering/Payment'\"]");
     private By PageFooter = By.xpath("//*[@class=\"page-footer ToArabicNumber\"]");
     private By InputAmountfield = By.xpath("//input[@data-val-number=\"The field PayAmount must be a number.\"]");
     private By ProceedtoPay = By.xpath("//button[@id='btnconfimration']");

@@ -19,7 +19,7 @@ import java.time.Duration;
 public class ServiceRequestRFID extends SeleniumTest {
     @Severity(SeverityLevel.NORMAL)
     @Description("Validate User able to Apply Transport Service Request with RFID Category")
-    @Test
+    @Test(groups = "regression")
     public void VerifyUsercanapplyforRFID() {
 
     driver.get(config.getProperty("app.url"));

@@ -1,6 +1,7 @@
 package modules.Requests.Tests;
 
 import base.SeleniumTest;
+import io.qameta.allure.*;
 import modules.Requests.Pages.RequestModulePages;
 import modules.login.pages.LoginPage;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -8,10 +9,13 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import java.time.Duration;
-
+@Epic("Requests")
+@Feature("Apply Gatepass")
 public class GatePassTest extends SeleniumTest {
 
-    @Test
+    @Severity(SeverityLevel.CRITICAL)
+    @Description("Validate user can able to apply gate pass request successfully")
+    @Test(groups = {"regression"})
     public void VerifyGatePassRequestWorking() {
         // Test implementation
         driver.get(config.getProperty("app.url"));

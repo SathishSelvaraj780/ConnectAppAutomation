@@ -15,13 +15,13 @@ import java.time.Duration;
 public class CateringTest extends SeleniumTest {
     @Severity(SeverityLevel.NORMAL)
     @Description("Validate user can able to top up the wallet through catering top up menu and redirect to payment gateway")
-    @Test
+    @Test(groups = {"regression"})
     public void appCateringTopup() {
         driver.get(config.getProperty("app.url"));
 
         // Step 2: Login with credentials from config
         LoginPage Login = new LoginPage(driver);
-        Login.enterUsername(config.getProperty("test.username", "Nahyan.n"));
+        Login.enterUsername(config.getProperty("test.username", "oleg.v4"));
         Login.enterPassword(config.getProperty("test.password", "Welcome1234@"));
         Login.clickLogin();
         // Optional: wait for login to complete or dashboard to load

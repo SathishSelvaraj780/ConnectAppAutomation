@@ -3,6 +3,7 @@ package modules.academics.tests;
 import java.time.Duration;
 import java.util.List;
 
+import io.qameta.allure.*;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -13,10 +14,12 @@ import org.testng.annotations.Test;
 import base.SeleniumTest;
 import modules.academics.pages.AcademicReports;
 import modules.login.pages.LoginPage;
-
+@Epic("Reports")
+@Feature("Academic Reports")
 public class AcademicTest extends SeleniumTest {
-
-	@Test
+	@Severity(SeverityLevel.CRITICAL)
+	@Description("Validate user can able to view and download academic reports")
+	@Test(groups = {"regression"})
 	public void appAcademicReports() throws InterruptedException {
 		
 try

@@ -2,6 +2,7 @@ package modules.Activities.tests;
 
 import java.time.Duration;
 
+import io.qameta.allure.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -12,13 +13,15 @@ import base.SeleniumTest;
 import modules.Activities.pages.Activities;
 import modules.academics.pages.AcademicReports;
 import modules.login.pages.LoginPage;
-
+@Epic("Activities")
+@Feature("Enroll to Activity")
 public class ActivitiesEnrollmentTest extends SeleniumTest {
-
-	@Test
+	@Severity(SeverityLevel.CRITICAL)
+	@Description("Validate user can able to enroll for activities and proceed to payment page")
+	@Test(groups = {"regression"})
 	public void appActivities() throws InterruptedException {
 
-		driver.get(config.getProperty("app.url"));
+		getDriver().get(config.getProperty("app.url"));
 
 		LoginPage Login = new LoginPage(driver);
 		Login.enterUsername(config.getProperty("test.username", "Faizal.a9"));

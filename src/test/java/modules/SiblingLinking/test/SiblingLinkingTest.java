@@ -2,6 +2,7 @@ package modules.SiblingLinking.test;
 
 import java.time.Duration;
 
+import io.qameta.allure.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
@@ -10,11 +11,13 @@ import base.SeleniumTest;
 import modules.Leaveletter.Page.LeaveLetterPage;
 import modules.SiblingLinking.Page.SiblingLinkingPage;
 import modules.login.pages.LoginPage;
-
+@Epic("Requests")
+@Feature("Sibling Linking")
 public class SiblingLinkingTest extends SeleniumTest
 {
-
-	@Test
+    @Severity(SeverityLevel.NORMAL)
+    @Description("Validate user can able to submit sibling linking request successfully")
+    @Test(groups = {"regression"})
     public void SiblingLinkingSubmission() throws InterruptedException {
 		
 		try

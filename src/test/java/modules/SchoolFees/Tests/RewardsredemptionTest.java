@@ -16,10 +16,10 @@ public class RewardsredemptionTest extends SeleniumTest {
 
     @Severity(SeverityLevel.CRITICAL)
     @Description("Validate user can able to pay School Fee through Reward Points")
-    @Test
+    @Test(groups = {"regression"})
     public void VerifyRewardsRedemption() {
         SchoolFeesPages schoolFees;
-        driver.get(config.getProperty("app.url"));
+        getDriver().get(config.getProperty("app.url"));
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
 
         LoginPage login = new LoginPage(driver);
