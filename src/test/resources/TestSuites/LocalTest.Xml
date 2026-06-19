@@ -7,16 +7,15 @@
     <parameter name="browser" value="chrome"/>
     <parameter name="runmode" value="local"/>
     <listeners>
-        <listener class-name="io.qameta.allure.testng.AllureTestNg"/>
         <listener class-name="utils.AllureListener"/>
     </listeners>
 
-    <test name="Local Debug Suite">
+    <test name="School Fees Local Test">
 
 
         <classes>
 
-            <class name="modules.login.tests.ConnectLoginTest"/>
+            <class name="modules.StudentParentDetails.test.StudentParentDetailsTest"/>
 
         </classes>
 

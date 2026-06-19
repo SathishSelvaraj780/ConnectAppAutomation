@@ -57,9 +57,9 @@ function toggleAllBoxes() {
 <tr>
 <td>Tests passed/Failed/Skipped:</td><td>0/1/0</td>
 </tr><tr>
-<td>Started on:</td><td>Tue Jun 16 12:27:36 IST 2026</td>
+<td>Started on:</td><td>Fri Jun 19 14:22:39 IST 2026</td>
 </tr>
-<tr><td>Total time:</td><td>111 seconds (111500 ms)</td>
+<tr><td>Total time:</td><td>133 seconds (133467 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -77,28 +77,24 @@ function toggleAllBoxes() {
 </tr>
 <tr>
 <td title='modules.StudentParentDetails.test.StudentParentDetailsTest.ParentDetailsUpdate()'><b>ParentDetailsUpdate</b><br>Test class: modules.StudentParentDetails.test.StudentParentDetailsTest</td>
-<td><div><pre>org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of element located by By.id: stu_PREFCONTACT (tried for 30 second(s) with 500 milliseconds interval)
-Build info: version: &apos;4.33.0&apos;, revision: &apos;2c6aaad03a&apos;
-System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;21.0.8&apos;
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 149.0.7827.103, chrome: {chromedriverVersion: 149.0.7827.115 (daf70f9ddee..., userDataDir: C:\Users\TG2971\AppData\Loc...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:53154}, goog:processID: 2312, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:53154/devtoo..., se:cdpVersion: 149.0.7827.103, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: 746f299c25989009e5ef45d39ee116c3
-	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:84)
-	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:228)
-	at modules.StudentParentDetails.Page.StudentParentDetailsPage.selectPreferredContact(StudentParentDetailsPage.java:58)
-	at modules.StudentParentDetails.test.StudentParentDetailsTest.ParentDetailsUpdate(StudentParentDetailsTest.java:54)
+<td><div><pre>java.lang.RuntimeException: Unable to select &apos;British (United Kingdom)&apos; from dropdown &apos;motheR_NATIONALITY_ID&apos;
+	at modules.StudentParentDetails.Page.StudentParentDetailsPage.selectBootstrapDropdown(StudentParentDetailsPage.java:182)
+	at modules.StudentParentDetails.test.StudentParentDetailsTest.ParentDetailsUpdate(StudentParentDetailsTest.java:141)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
-... Removed 25 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1868931587", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace1868931587'><pre>org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of element located by By.id: stu_PREFCONTACT (tried for 30 second(s) with 500 milliseconds interval)
-Build info: version: &apos;4.33.0&apos;, revision: &apos;2c6aaad03a&apos;
+Caused by: org.openqa.selenium.TimeoutException: Expected condition failed: waiting for element to be clickable: By.xpath: //span[@class=&apos;text&apos; and normalize-space()=&apos;British (United Kingdom)&apos;] (tried for 30 second(s) with 500 milliseconds interval)
+Build info: version: &apos;4.11.0&apos;, revision: &apos;040bc5406b&apos;
 System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;21.0.8&apos;
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 149.0.7827.103, chrome: {chromedriverVersion: 149.0.7827.115 (daf70f9ddee..., userDataDir: C:\Users\TG2971\AppData\Loc...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:53154}, goog:processID: 2312, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:53154/devtoo..., se:cdpVersion: 149.0.7827.103, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: 746f299c25989009e5ef45d39ee116c3
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 149.0.7827.103, chrome: {chromedriverVersion: 149.0.7827.155 (07b52360cc1..., userDataDir: C:\Users\TG2971\AppData\Loc...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:49360}, goog:processID: 15408, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:49360/devtoo..., se:cdpVersion: 149.0.7827.103, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 909f2fb809f1f9609faa917251335c4b
 	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:84)
-	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:228)
-	at modules.StudentParentDetails.Page.StudentParentDetailsPage.selectPreferredContact(StudentParentDetailsPage.java:58)
-	at modules.StudentParentDetails.test.StudentParentDetailsTest.ParentDetailsUpdate(StudentParentDetailsTest.java:54)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:230)
+	at modules.StudentParentDetails.Page.StudentParentDetailsPage.selectBootstrapDropdown(StudentParentDetailsPage.java:165)
+	... 27 more
+... Removed 25 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1081944577", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1081944577'><pre>java.lang.RuntimeException: Unable to select &apos;British (United Kingdom)&apos; from dropdown &apos;motheR_NATIONALITY_ID&apos;
+	at modules.StudentParentDetails.Page.StudentParentDetailsPage.selectBootstrapDropdown(StudentParentDetailsPage.java:182)
+	at modules.StudentParentDetails.test.StudentParentDetailsTest.ParentDetailsUpdate(StudentParentDetailsTest.java:141)
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
 	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
@@ -125,9 +121,19 @@ Session ID: 746f299c25989009e5ef45d39ee116c3
 	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+Caused by: org.openqa.selenium.TimeoutException: Expected condition failed: waiting for element to be clickable: By.xpath: //span[@class=&apos;text&apos; and normalize-space()=&apos;British (United Kingdom)&apos;] (tried for 30 second(s) with 500 milliseconds interval)
+Build info: version: &apos;4.11.0&apos;, revision: &apos;040bc5406b&apos;
+System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;21.0.8&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 149.0.7827.103, chrome: {chromedriverVersion: 149.0.7827.155 (07b52360cc1..., userDataDir: C:\Users\TG2971\AppData\Loc...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:49360}, goog:processID: 15408, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:49360/devtoo..., se:cdpVersion: 149.0.7827.103, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 909f2fb809f1f9609faa917251335c4b
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:84)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:230)
+	at modules.StudentParentDetails.Page.StudentParentDetailsPage.selectBootstrapDropdown(StudentParentDetailsPage.java:165)
+	... 27 more
 </pre></div></td>
-<td>102</td>
-<td>modules.StudentParentDetails.test.StudentParentDetailsTest@240f6c41</td></tr>
+<td>124</td>
+<td>modules.StudentParentDetails.test.StudentParentDetailsTest@38b5f25</td></tr>
 </table><p>
 </body>
 </html>

@@ -11,6 +11,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class SiblingLinkingPage 
+
 {
 
 	private WebDriver driver;
@@ -21,7 +22,6 @@ public class SiblingLinkingPage
 	private By EmailIdField = By.xpath("//input[@id='email']");
 	private By StudentIdField = By.xpath("//input[@id='studno']");
 	private By validationMessage = By.xpath("//*[@id=\"success-dialog\"]/div/div/div[2]/div[2]");
-	
 	
 
 	// Constructor

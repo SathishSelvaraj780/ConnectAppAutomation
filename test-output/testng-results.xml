@@ -2,12 +2,12 @@
 <testng-results ignored="0" total="1" passed="0" failed="1" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2026-06-16T12:27:36 IST" name="Local Test Suite" finished-at="2026-06-16T12:29:28 IST" duration-ms="111500">
+  <suite started-at="2026-06-19T14:22:39 IST" name="Local Test Suite" finished-at="2026-06-19T14:24:52 IST" duration-ms="133467">
     <groups>
     </groups>
-    <test started-at="2026-06-16T12:27:36 IST" name="School Fees Local Test" finished-at="2026-06-16T12:29:28 IST" duration-ms="111500">
+    <test started-at="2026-06-19T14:22:39 IST" name="School Fees Local Test" finished-at="2026-06-19T14:24:52 IST" duration-ms="133467">
       <class name="modules.StudentParentDetails.test.StudentParentDetailsTest">
-        <test-method is-config="true" signature="setUp(java.lang.String,java.lang.String)[pri:0, instance:modules.StudentParentDetails.test.StudentParentDetailsTest@240f6c41]" started-at="2026-06-16T12:27:37 IST" name="setUp" finished-at="2026-06-16T12:27:43 IST" duration-ms="6359" status="PASS">
+        <test-method is-config="true" signature="setUp(java.lang.String,java.lang.String)[pri:0, instance:modules.StudentParentDetails.test.StudentParentDetailsTest@38b5f25]" started-at="2026-06-19T14:22:39 IST" name="setUp" finished-at="2026-06-19T14:22:47 IST" duration-ms="7734" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -23,27 +23,15 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method signature="ParentDetailsUpdate()[pri:0, instance:modules.StudentParentDetails.test.StudentParentDetailsTest@240f6c41]" started-at="2026-06-16T12:27:43 IST" name="ParentDetailsUpdate" finished-at="2026-06-16T12:29:26 IST" duration-ms="102968" status="FAIL">
-          <exception class="org.openqa.selenium.TimeoutException">
+        <test-method signature="ParentDetailsUpdate()[pri:0, instance:modules.StudentParentDetails.test.StudentParentDetailsTest@38b5f25]" started-at="2026-06-19T14:22:47 IST" name="ParentDetailsUpdate" finished-at="2026-06-19T14:24:52 IST" duration-ms="124713" status="FAIL">
+          <exception class="java.lang.RuntimeException">
             <message>
-              <![CDATA[Expected condition failed: waiting for visibility of element located by By.id: stu_PREFCONTACT (tried for 30 second(s) with 500 milliseconds interval)
-Build info: version: '4.33.0', revision: '2c6aaad03a'
-System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '21.0.8'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 149.0.7827.103, chrome: {chromedriverVersion: 149.0.7827.115 (daf70f9ddee..., userDataDir: C:\Users\TG2971\AppData\Loc...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:53154}, goog:processID: 2312, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:53154/devtoo..., se:cdpVersion: 149.0.7827.103, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: 746f299c25989009e5ef45d39ee116c3]]>
+              <![CDATA[Unable to select 'British (United Kingdom)' from dropdown 'motheR_NATIONALITY_ID']]>
             </message>
             <full-stacktrace>
-              <![CDATA[org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of element located by By.id: stu_PREFCONTACT (tried for 30 second(s) with 500 milliseconds interval)
-Build info: version: '4.33.0', revision: '2c6aaad03a'
-System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '21.0.8'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 149.0.7827.103, chrome: {chromedriverVersion: 149.0.7827.115 (daf70f9ddee..., userDataDir: C:\Users\TG2971\AppData\Loc...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:53154}, goog:processID: 2312, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:53154/devtoo..., se:cdpVersion: 149.0.7827.103, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: 746f299c25989009e5ef45d39ee116c3
-at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:84)
-at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:228)
-at modules.StudentParentDetails.Page.StudentParentDetailsPage.selectPreferredContact(StudentParentDetailsPage.java:58)
-at modules.StudentParentDetails.test.StudentParentDetailsTest.ParentDetailsUpdate(StudentParentDetailsTest.java:54)
+              <![CDATA[java.lang.RuntimeException: Unable to select 'British (United Kingdom)' from dropdown 'motheR_NATIONALITY_ID'
+at modules.StudentParentDetails.Page.StudentParentDetailsPage.selectBootstrapDropdown(StudentParentDetailsPage.java:182)
+at modules.StudentParentDetails.test.StudentParentDetailsTest.ParentDetailsUpdate(StudentParentDetailsTest.java:141)
 at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
 at java.base/java.lang.reflect.Method.invoke(Method.java:580)
 at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
@@ -70,13 +58,23 @@ at org.testng.TestNG.run(TestNG.java:1079)
 at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
 at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
 at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+Caused by: org.openqa.selenium.TimeoutException: Expected condition failed: waiting for element to be clickable: By.xpath: //span[@class='text' and normalize-space()='British (United Kingdom)'] (tried for 30 second(s) with 500 milliseconds interval)
+Build info: version: '4.11.0', revision: '040bc5406b'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '21.0.8'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 149.0.7827.103, chrome: {chromedriverVersion: 149.0.7827.155 (07b52360cc1..., userDataDir: C:\Users\TG2971\AppData\Loc...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:49360}, goog:processID: 15408, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:49360/devtoo..., se:cdpVersion: 149.0.7827.103, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 909f2fb809f1f9609faa917251335c4b
+at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:84)
+at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:230)
+at modules.StudentParentDetails.Page.StudentParentDetailsPage.selectBootstrapDropdown(StudentParentDetailsPage.java:165)
+... 27 more
 ]]>
             </full-stacktrace>
-          </exception> <!-- org.openqa.selenium.TimeoutException -->
+          </exception> <!-- java.lang.RuntimeException -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- ParentDetailsUpdate -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:modules.StudentParentDetails.test.StudentParentDetailsTest@240f6c41]" started-at="2026-06-16T12:29:27 IST" name="tearDown" finished-at="2026-06-16T12:29:28 IST" duration-ms="1346" status="PASS">
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:modules.StudentParentDetails.test.StudentParentDetailsTest@38b5f25]" started-at="2026-06-19T14:24:52 IST" name="tearDown" finished-at="2026-06-19T14:24:52 IST" duration-ms="444" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
