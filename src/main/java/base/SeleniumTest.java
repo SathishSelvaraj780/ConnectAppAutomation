@@ -109,8 +109,9 @@ public class SeleniumTest {
                     WebDriverManager.chromedriver().setup();
 
                     ChromeOptions options = new ChromeOptions();
-
-                    options.addArguments("--force-device-scale-factor=0.80");
+                    options.addArguments("--start-maximized");
+                    options.addArguments("--window-size=1920,1080");
+                    //options.addArguments("--force-device-scale-factor=0.55");
                     driverInstance = new ChromeDriver(options);
                     driver = driverInstance;
                     DriverFactory.setDriver(driverInstance);
