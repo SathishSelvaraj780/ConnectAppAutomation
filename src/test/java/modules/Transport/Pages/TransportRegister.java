@@ -5,6 +5,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 
 import java.time.Duration;
 import java.util.Arrays;
@@ -39,11 +40,26 @@ public class TransportRegister {
     private By PrintreferenceNo = By.xpath("//div[contains(text(),'Reference No.')]");
     private By FinalProceedButton = By.xpath("//button[@id=\"proceedBtn\"]");
     private By FinalOKtoHomeredirection = By.xpath("//button[@id=\"homeRedirectBtn\"]");
+    private By TransportRequestAreaChange = By.xpath("//a[@data-menutext=\"Request Area Change\"]");
+    private By AreaChangeButton = By.xpath("//button[@id=\"requestAreaChangeButton\"]");
+
+
     
     public TransportRegister(WebDriver driver, WebDriverWait wait) {
         this.driver = driver;
         this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
     }
+
+    public void clickTransportRequestAreaChangeButton() {
+        wait.until(ExpectedConditions.elementToBeClickable(TransportRequestAreaChange)).click();
+
+        wait.until(ExpectedConditions.visibilityOfElementLocated(AreaChangeButton)).click();
+
+        String actualUral  = driver.getCurrentUrl();
+        Assert.assertTrue(actualUral.contains("https://qa-connectv2.phoenixhse.com/Requests/RequestAreaChange/RequestAreaChange?studentNo=13100100040575"), "URL does not contain expected text: transport/request-area-change");
+    }
+
+
     @Step("Open Transport Menu")
     public void clickTransportMenu(){
     wait.until(ExpectedConditions.elementToBeClickable(TransportMenu)).click();

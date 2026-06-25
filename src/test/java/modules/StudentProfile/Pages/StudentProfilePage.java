@@ -333,56 +333,56 @@ public class StudentProfilePage {
         System.out.println("Clicked Communications Tab");
 
     }
-        public void clickOtherTab() {
-            waitForLoaderToDisappear();
+    public void clickOtherTab() {
+        waitForLoaderToDisappear();
 
-            WebElement otherTab  = wait.until(
-                    ExpectedConditions.elementToBeClickable(
-                            OtherTab));
+        WebElement otherTab  = wait.until(
+                ExpectedConditions.elementToBeClickable(
+                        OtherTab));
 
-            ((JavascriptExecutor) driver)
-                    .executeScript(
-                            "arguments[0].scrollIntoView({block:'center'});",
-                            otherTab);
+        ((JavascriptExecutor) driver)
+                .executeScript(
+                        "arguments[0].scrollIntoView({block:'center'});",
+                        otherTab);
 
-            otherTab.click();
+        otherTab.click();
 
-            System.out.println("Clicked Other Tab");
+        System.out.println("Clicked Other Tab");
 
+    }
+    public void clickEditProfileButton() {
+        waitForLoaderToDisappear();
+
+        // Scroll page to top completely
+        ((JavascriptExecutor) driver)
+                .executeScript("window.scrollTo(0, 0);");
+
+        // Small wait for sticky header rendering
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
         }
-        public void clickEditProfileButton() {
-            waitForLoaderToDisappear();
 
-            // Scroll page to top completely
-            ((JavascriptExecutor) driver)
-                    .executeScript("window.scrollTo(0, 0);");
+        WebElement editProfileBtn = wait.until(
+                ExpectedConditions.presenceOfElementLocated(
+                        EditProfileButton));
 
-            // Small wait for sticky header rendering
-            try {
-                Thread.sleep(2000);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
+        // Force scroll to button
+        ((JavascriptExecutor) driver)
+                .executeScript(
+                        "arguments[0].scrollIntoView({block:'center'});",
+                        editProfileBtn);
 
-            WebElement editProfileBtn = wait.until(
-                    ExpectedConditions.presenceOfElementLocated(
-                            EditProfileButton));
+        // JS click avoids overlay issue
+        ((JavascriptExecutor) driver)
+                .executeScript(
+                        "arguments[0].click();",
+                        editProfileBtn);
 
-            // Force scroll to button
-            ((JavascriptExecutor) driver)
-                    .executeScript(
-                            "arguments[0].scrollIntoView({block:'center'});",
-                            editProfileBtn);
+        System.out.println("Clicked Edit Profile Button");
 
-            // JS click avoids overlay issue
-            ((JavascriptExecutor) driver)
-                    .executeScript(
-                            "arguments[0].click();",
-                            editProfileBtn);
-
-            System.out.println("Clicked Edit Profile Button");
-
-        }
+    }
     public boolean isCommunicationMessageDisplayed() {
 
         By communicationMessage = By.xpath(
@@ -400,7 +400,7 @@ public class StudentProfilePage {
         return message.isDisplayed() &&
                 !actualMessage.isEmpty();
     }
-public void clickCommandNewsLetterArrorw(){
+    public void clickCommandNewsLetterArrorw(){
         wait.until(ExpectedConditions.elementToBeClickable(CommandNewsletterArrow)).click();
     }
     public void clickMessageDetailsarrow(){

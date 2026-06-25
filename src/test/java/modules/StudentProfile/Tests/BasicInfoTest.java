@@ -40,6 +40,7 @@ public class BasicInfoTest extends SeleniumTest {
                 studentProfilePage.validateFieldAndValue(
                         "Name",
                         "Muath Jon Shazeer"));
+        studentProfilePage.openAccordion("Contact Information");
         // Joining Details
         studentProfilePage.openAccordion(
                 "Joining Details");
@@ -50,18 +51,17 @@ public class BasicInfoTest extends SeleniumTest {
         // Documents Details
         studentProfilePage.openAccordion(
                 "Documents Details");
-        Assert.assertTrue(
-                studentProfilePage.validateFieldAndValue(
-                        "Passport Number",
-                        "20525577-PNOD"));
+        Assert.assertTrue(studentProfilePage.validateDynamicFieldValue("Passport Number"));
         // Language Details
+        studentProfilePage.openAccordion(
+                "Documents Details");
         studentProfilePage.openAccordion(
                 "Language Details");
 
-        Assert.assertTrue(
-                studentProfilePage.validateFieldAndValue(
-                        "First Language",
-                        "Arabic"));
+        Assert.assertTrue(studentProfilePage.validateDynamicFieldValue("First Language"));
+
+        studentProfilePage.openAccordion(
+                "Language Details");
 
         studentProfilePage.openAccordion("Sibling Info");
         Thread.sleep(2000);

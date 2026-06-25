@@ -15,7 +15,7 @@
 
         <classes>
 
-            <class name="modules.StudentParentDetails.test.StudentParentDetailsTest"/>
+            <class name="modules.Transport.Tests.Debugclass"/>
 
         </classes>
 

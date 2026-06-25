@@ -1,12 +1,9 @@
 package modules.StudentParentDetails.Page;
 
 import java.time.Duration;
+import java.util.List;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
@@ -19,7 +16,7 @@ public class StudentParentDetailsPage {
 
     private By Topmenu = By.xpath("//*[@data-menutext='Requests']");
     private By UpdateStudentDetailsMenu = By.xpath("//*[@data-menutext='Update Student Details']");
-    private By ParentDetailsTab = By.xpath("//a[normalize-space()='Parent Details']");
+    private By ParentDetailsTab = By.xpath("//a[@href=\"#parentDetailsData\"]");
     private By FeeSponsor = By.id("feeSponsor");
     private By fatherAccordion = By.xpath("//button[.//span[contains(text(),'Parent Details - Primary contact (Father)')]]");
     
@@ -61,7 +58,7 @@ public class StudentParentDetailsPage {
     private By occupation = By.id("fatheR_OCCUPATION");
 
     // Company Other textbox
-    private By companyOther = By.id("fatheR_COMPANY");
+    private By fatheRCompany = By.id("fatheR_COMPANY");
 
     // How Long Have You Been Living In UAE dropdown
     private By livingInUAEButton =
@@ -86,9 +83,147 @@ public class StudentParentDetailsPage {
     private By motherOfficePhone = By.id("motheR_OFFICE_PHONE");
     private By motherOccupation = By.id("motheR_OCCUPATION");
     private By motherCompany = By.id("motheR_COMPANY");
-    
-    
-    
+    private By openGuardianAccordian = By.xpath("//button[.//span[contains(text(),'Parent Details (Guardian)')]]");
+    private By Guardianfirstname = By.id("guardiaN_FIRSTNAME");
+    private By GuardianMiddlename = By.id("guardiaN_MIDNAME");
+    private By GuardianLastname = By.id("guardiaN_LASTNAME");
+    private By GuardianStreet = By.id("guardiaN_STREET");
+    private By GuardianOtherarea = By.id("guardiaN_AREA");
+    private By Guardianvillaname = By.id("guardiaN_BLDG");
+    private By Guardianapartment = By.id("guardiaN_APARTMENT");
+    private By Guardianpobox = By.id("guardiaN_POBOX");
+    private By Guardianfax = By.id("guardiaN_FAX");
+    private By Guardianmobile = By.id("guardiaN_MOBILE");
+    private By Guardianemail = By.id("guardiaN_EMAIL");
+    private By GuardianHomePhone = By.id("guardiaN_RESIDENCE_PHONE");
+    private By Guardianofficephone = By.id("guardiaN_OFFICE_PHONE");
+    private By GuardianOccupation = By.id("guardiaN_OCCUPATION");
+    private By UpdateButton = By.xpath("//button[contains(@onclick,'saveParentDetails()')]");
+    private By GuardianCompany = By.xpath("//*[@id=\"guardiaN_COMPANY\"]");
+
+    public void enterGuardianFirstName(String value) {
+        enterText(Guardianfirstname, value);
+    }
+
+    public void enterGuardianMiddleName(String value) {
+        enterText(GuardianMiddlename, value);
+    }
+
+    public void enterGuardianLastName(String value) {
+        enterText(GuardianLastname, value);
+    }
+    public void enterGuardianStreet(String value) {
+        enterText(GuardianStreet, value);
+    }
+
+    public void enterGuardianOtherArea(String value) {
+        enterText(GuardianOtherarea, value);
+    }
+
+    public void enterGuardianVillaName(String value) {
+        enterText(Guardianvillaname, value);
+    }
+
+    public void enterGuardianApartment(String value) {
+        enterText(Guardianapartment, value);
+    }
+
+    public void enterGuardianPoBox(String value) {
+        enterText(Guardianpobox, value);
+    }
+
+    public void enterGuardianFax(String value) {
+        enterText(Guardianfax, value);
+    }
+
+    public void enterGuardianMobile(String value) {
+        enterText(Guardianmobile, value);
+    }
+
+    public void enterGuardianEmail(String value) {
+        enterText(Guardianemail, value);
+    }
+
+    public void enterGuardianHomePhone(String value) {
+        enterText(GuardianHomePhone, value);
+    }
+
+    public void enterGuardianOfficePhone(String value) {
+        enterText(Guardianofficephone, value);
+    }
+
+    public void enterGuardianOccupation(String value) {
+        enterText(GuardianOccupation, value);
+    }
+
+    public void expandGuardianSection() throws InterruptedException {
+
+        WebElement guardianAccordion =
+                wait.until(ExpectedConditions.elementToBeClickable(
+                        openGuardianAccordian));
+
+        ((JavascriptExecutor) driver).executeScript(
+                "arguments[0].scrollIntoView({block:'center'});",
+                guardianAccordion);
+
+        guardianAccordion.click();
+
+        Thread.sleep(2000);
+
+        System.out.println("Guardian section expanded");
+    }
+    public void waitForLoaderToDisappear() {
+
+        WebDriverWait wait =
+                new WebDriverWait(driver, Duration.ofSeconds(30));
+
+        wait.until(ExpectedConditions.invisibilityOfElementLocated(
+                By.xpath("//div[contains(@class,'blockUI blockOverlay')]")));
+    }
+    public void clickUpdateButton() {
+        waitForLoaderToDisappear();
+
+        WebElement updateBtn = wait.until(
+                ExpectedConditions.presenceOfElementLocated(
+                        UpdateButton));
+
+        ((JavascriptExecutor) driver)
+                .executeScript(
+                        "arguments[0].scrollIntoView({block:'center'});",
+                        updateBtn);
+
+        ((JavascriptExecutor) driver)
+                .executeScript(
+                        "arguments[0].click();",
+                        updateBtn);
+
+        // WAIT FOR SAVE PROCESS
+        waitForLoaderToDisappear();
+    }
+    public String  handlepopupMessage() {
+        // Wait until popup appears
+        waitForLoaderToDisappear();
+
+        // SUCCESS MESSAGE
+        WebElement popupMessage = wait.until(
+                ExpectedConditions.visibilityOfElementLocated(
+                        By.cssSelector("div.messageSuccess")));
+
+        String actualMessage = popupMessage.getText().trim();
+
+        System.out.println("Popup Message : " + actualMessage);
+
+        // OK BUTTON
+        WebElement okButton = wait.until(
+                ExpectedConditions.elementToBeClickable(
+                        By.cssSelector("button.success-dialog-ok")));
+
+        ((JavascriptExecutor) driver)
+                .executeScript("arguments[0].click();", okButton);
+
+        return actualMessage;
+
+    }
     
     
     // Constructor
@@ -108,10 +243,21 @@ public class StudentParentDetailsPage {
 
     public void openParentDetailsMenu()
     {
+        waitForBlockUIToDisappear();
         wait.until(ExpectedConditions.elementToBeClickable(ParentDetailsTab)).click();
 
         wait.until(ExpectedConditions.presenceOfElementLocated(
-                By.id("feeSponsor")));
+                By.xpath("//a[@href=\"#parentDetailsData\"]")));
+    }
+
+    public void waitForBlockUIToDisappear() {
+
+        WebDriverWait wait =
+                new WebDriverWait(driver, Duration.ofSeconds(30));
+
+        wait.until(
+                ExpectedConditions.invisibilityOfElementLocated(
+                        By.cssSelector(".blockUI.blockOverlay")));
     }
 
     public void selectFeeSponsor()
@@ -140,50 +286,28 @@ public class StudentParentDetailsPage {
                 fatherAccordion)).click();
     }
     
-    public void selectBootstrapDropdown(String fieldId, String value) {
+    public void selectBootstrapDropdown(String fieldId, String value)
+               throws InterruptedException {
 
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+        WebElement dropdown =
+                wait.until(
+                        ExpectedConditions.elementToBeClickable(
+                                By.xpath("//button[@data-id='" +
+                                        fieldId + "']")));
 
-        try {
+        ((JavascriptExecutor) driver)
+                .executeScript(
+                        "arguments[0].scrollIntoView({block:'center'});",
+                        dropdown);
 
-            WebElement dropdown = wait.until(
-                    ExpectedConditions.elementToBeClickable(
-                            By.xpath("//button[@data-id='" + fieldId + "']")));
+        dropdown.click();
 
-            ((JavascriptExecutor) driver)
-                    .executeScript("arguments[0].scrollIntoView({block:'center'});",
-                            dropdown);
-            ((JavascriptExecutor) driver)
-            .executeScript("arguments[0].click();",
-                    dropdown);
-            Thread.sleep(2000);
+        Thread.sleep(2000);
 
-            System.out.println("Open dropdown count = " +
-                driver.findElements(
-                    By.xpath("//div[contains(@class,'dropdown-menu') and contains(@class,'show')]")
-                ).size());
-            WebElement option = wait.until(
-            	    ExpectedConditions.elementToBeClickable(
-            	        By.xpath(
-            	            "//span[@class='text' and normalize-space()='"
-            	            + value + "']")));
-
-            ((JavascriptExecutor) driver)
-            .executeScript("arguments[0].click();", option);
-
-            option.click();
-
-            System.out.println("Selected " + fieldId + " -> " + value);
-
-        } 
-        
-        catch (Exception e) {
-
-            throw new RuntimeException(
-                    "Unable to select '" + value +
-                    "' from dropdown '" + fieldId + "'", e);
-        }
+        System.out.println(
+                "Selected " + fieldId + " -> " + value);
     }
+
     
     public void selectDropdownByText(String id, String value) {
 
@@ -283,7 +407,7 @@ public class StudentParentDetailsPage {
     public void selectCompany(String companyName) throws InterruptedException {
 
         WebElement company = wait.until(
-                ExpectedConditions.elementToBeClickable(companyOther));
+                ExpectedConditions.elementToBeClickable(fatheRCompany));
 
         company.click();
 
@@ -327,26 +451,29 @@ Thread.sleep(1000);
     
     public void expandMotherSection() throws InterruptedException {
 
-        WebElement motherSection =
-            wait.until(ExpectedConditions.presenceOfElementLocated(
-                motherAccordion));
+        WebElement motherAccordion =
+                wait.until(ExpectedConditions.elementToBeClickable(
+                        By.id("secondAccordion")));
 
         ((JavascriptExecutor) driver).executeScript(
-            "arguments[0].scrollIntoView({block:'center'});",
-            motherSection);
+                "arguments[0].scrollIntoView({block:'center'});",
+                motherAccordion);
 
-        Thread.sleep(2000);
+        motherAccordion.click();
 
-        ((JavascriptExecutor) driver).executeScript(
-            "window.scrollBy(0,500);");
+        Thread.sleep(3000);
 
-        Thread.sleep(2000);
-
-        motherSection.click();
+        System.out.println("Mother section expanded");
     }
+    public void scrollToMotherNationality() {
 
-    public void enterMotherStreet(String value) {
-        enterText(motherStreet, value);
+        WebElement nationalityButton =
+                driver.findElement(
+                        By.xpath("//button[@data-id='motheR_NATIONALITY_ID']"));
+
+        ((JavascriptExecutor) driver).executeScript(
+                "arguments[0].scrollIntoView({block:'center'});",
+                nationalityButton);
     }
 
     public void enterMotherBuildingName(String value) {
@@ -406,10 +533,30 @@ Thread.sleep(1000);
 
         Thread.sleep(1000);
 
-        new Actions(driver)
-                .moveByOffset(10, 10)
-                .click()
-                .perform();
+        company.sendKeys(Keys.TAB);
+    }
+    public void selectGuardianCompany(String companyName)
+            throws InterruptedException {
+
+        WebElement company = wait.until(
+                ExpectedConditions.elementToBeClickable(
+                        GuardianCompany));
+
+        company.click();
+
+        company.sendKeys(Keys.CONTROL + "a");
+        company.sendKeys(Keys.DELETE);
+
+        company.sendKeys(companyName);
+
+        Thread.sleep(2000);
+
+        company.sendKeys(Keys.ARROW_DOWN);
+        company.sendKeys(Keys.ENTER);
+
+        Thread.sleep(1000);
+
+        company.sendKeys(Keys.TAB);
     }
     
 }
