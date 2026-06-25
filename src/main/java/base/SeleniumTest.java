@@ -24,6 +24,7 @@ import org.testng.annotations.Parameters;
 import java.net.URL;
 import java.time.Duration;
 import java.util.HashMap;
+import java.util.Map;
 import java.util.Properties;
 import java.util.logging.Logger;
 
@@ -111,6 +112,17 @@ public class SeleniumTest {
                     ChromeOptions options = new ChromeOptions();
                     options.addArguments("--window-size=1920,1080");
                     options.addArguments("--force-device-scale-factor=0.55");
+
+                    Map<String, Object> prefs = new HashMap<>();
+
+// Block Location Permission Popup
+                    prefs.put("profile.default_content_setting_values.geolocation", 2);
+
+// Optional: Block Notification Popup
+                    prefs.put("profile.default_content_setting_values.notifications", 2);
+
+                    options.setExperimentalOption("prefs", prefs);
+
                     driverInstance = new ChromeDriver(options);
                     driver = driverInstance;
                     DriverFactory.setDriver(driverInstance);
@@ -176,6 +188,7 @@ public class SeleniumTest {
                             .manage()
                             .window()
                             .setSize(new Dimension(1920, 1080));
+
 
                     break;
 
